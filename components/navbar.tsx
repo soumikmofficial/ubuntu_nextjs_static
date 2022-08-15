@@ -83,10 +83,12 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
 export default Navbar;
 
 const Container = styled.nav`
-  background: var(--col-primary);
+  position: fixed;
+  width: 100%;
+  // background: var(--col-primary);
   height: 10vh;
   padding: 0 2.5rem;
-  font-family: var(--font-sans-1);
+  font-family: var(--font-sans-2);
   text-transform: capitalize;
 
   .innerWrapper {
@@ -140,6 +142,7 @@ const NavLinks = styled.div`
   display: none;
   gap: 1.2rem;
   height: 100%;
+  font-weight: 600;
 
   @media ${device.lg} {
     display: flex;

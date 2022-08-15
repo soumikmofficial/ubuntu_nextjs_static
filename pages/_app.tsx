@@ -25,5 +25,6 @@ export default MyApp;
 
 const Body = styled.main`
   height: 90vh;
+  width: 100vw;
   overflow: scroll;
 `;
