@@ -13,10 +13,14 @@
   --font-sans-3: "Oswald", sans-serif;
   --font-highlight: "Josefin Sans", sans-serif;
   --font-subtitle: "DM Sans", sans-serif;
+  --font-body: "Lato", sans-serif;
 
   --padding-x-base: 0 2.5rem;
   --padding-x-lg: 0 10rem;
   --padding-x-xl: 0 13rem;
+}
+body::-webkit-scrollbar {
+  width: 1px;
 }
 
 html,

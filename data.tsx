@@ -1,3 +1,6 @@
+import { IoLogoWhatsapp } from "react-icons/io";
+import { BsFillTelephoneOutboundFill } from "react-icons/bs";
+
 export const navBtns = [
   { title: "home", id: 1, href: "/" },
   { title: "about", id: 2, href: "/about" },
@@ -30,4 +33,19 @@ export const menuSubLinks = [
   { title: "bowls", id: 10 },
   { title: "deserts", id: 11 },
   { title: "beverages", id: 12 },
+];
+
+export const contactOutlets = [
+  {
+    icon: <IoLogoWhatsapp className="icon" />,
+    message: "message us at",
+    info: "+919999988888",
+    id: 1,
+  },
+  {
+    icon: <BsFillTelephoneOutboundFill className="icon" />,
+    message: "call us on",
+    info: "+919999988888",
+    id: 2,
+  },
 ];

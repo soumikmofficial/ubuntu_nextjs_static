@@ -59,7 +59,7 @@ const Container = styled.footer`
   gap: 3rem;
 
   @media ${device.lg} {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 3fr;
     padding: var(--padding-x-lg);
     padding-top: 4rem;
     padding-bottom: 4rem;
