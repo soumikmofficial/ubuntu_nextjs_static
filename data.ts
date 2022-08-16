@@ -1,14 +1,20 @@
 export const navBtns = [
-  { title: "home", id: 1 },
-  { title: "about", id: 2 },
-  { title: "menu", id: 3 },
+  { title: "home", id: 1, href: "/" },
+  { title: "about", id: 2, href: "/about" },
+  { title: "menu", id: 3, href: "/menu" },
 ];
 
 export const menuMainLinks = [
-  { title: "menu", id: 1 },
-  { title: "about us", id: 2 },
-  { title: "contact", id: 3 },
-  { title: "order now", id: 4 },
+  { title: "menu", id: 1, href: "/menu" },
+  { title: "about us", id: 2, href: "/about" },
+  { title: "contact", id: 3, href: "/" },
+  { title: "order", id: 4, href: "/menu" },
+];
+export const footerLinks = [
+  { title: "menu", id: 1, href: "/menu" },
+  { title: "about", id: 2, href: "/about" },
+  { title: "contact", id: 3, href: "/" },
+  { title: "order", id: 4, href: "/menu" },
 ];
 
 export const menuSubLinks = [

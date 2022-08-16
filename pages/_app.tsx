@@ -6,6 +6,8 @@ import { useState } from "react";
 import Menu from "../components/menu";
 import styled from "styled-components";
 import { AnimatePresence } from "framer-motion";
+import Home from ".";
+import Footer from "../components/footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -17,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <AnimatePresence>{isMenuActive && <Menu />}</AnimatePresence>
         <Component {...pageProps} />
       </Body>
+      <Footer />
     </AppProvider>
   );
 }
@@ -24,7 +27,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp;
 
 const Body = styled.main`
-  height: 90vh;
   width: 100vw;
-  overflow: scroll;
+  height: 100%;
 `;

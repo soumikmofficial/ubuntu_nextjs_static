@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { device } from "../utils/breakpoints";
 import { useAppContext } from "../context/appContext";
 import { AnimatePresence, motion } from "framer-motion";
+import { OrderBtn } from "../styles/shared-styles";
 
 const variants = {
   visible: {
@@ -42,13 +43,13 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
         <div onClick={handleMenuToggle} className="menu-icon">
           {isMenuActive && (
             <motion.div variants={variants} animate="visible" initial="hidden">
-              <GrClose fontSize={20} />
+              <GrClose fontSize={20} className="icon" />
             </motion.div>
           )}
 
           {!isMenuActive && (
             <motion.div variants={variants} animate="visible" initial="hidden">
-              <CgMenuLeft fontSize={20} />
+              <CgMenuLeft fontSize={20} className="icon" />
             </motion.div>
           )}
         </div>
@@ -61,7 +62,7 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
               isActive={currentPage === btn.title}
               onClick={() => handleClick(btn.title)}
             >
-              <Link href="">
+              <Link href={`/${btn.href}`}>
                 <a> {btn.title}</a>
               </Link>
               <div className="pageMarker"></div>
@@ -70,11 +71,13 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
         </NavLinks>
 
         {/* brand logo */}
-        <img src="/images/ubuntu-logo.png" alt="" />
+        <Link href="/">
+          <a>
+            <img src="/images/ubuntu-logo.png" alt="logo" />
+          </a>
+        </Link>
 
-        {/* order button */}
-
-        <button>order now</button>
+        <OrderBtn>order now</OrderBtn>
       </div>
     </Container>
   );
@@ -86,10 +89,11 @@ const Container = styled.nav`
   position: fixed;
   width: 100%;
   // background: var(--col-primary);
-  height: 10vh;
+  height: 15vh;
   padding: 0 2.5rem;
   font-family: var(--font-sans-2);
   text-transform: capitalize;
+  z-index: 1000;
 
   .innerWrapper {
     position: relative;
@@ -97,7 +101,7 @@ const Container = styled.nav`
     height: 100%;
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 1rem;
   }
 
   @media ${device.sm} {
@@ -112,35 +116,23 @@ const Container = styled.nav`
 
   .menu-icon {
     cursor: pointer;
+
+    .icon {
+      font-size: 2rem;
+    }
   }
 
   img {
     position: absolute;
-    width: 4rem;
+    width: 6rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-
-  button {
-    display: none;
-    padding: 0.5rem 2rem;
-    color: white;
-    margin-left: auto;
-    background: var(--col-accent);
-    border-radius: 0.3rem;
-    text-transform: capitalize;
-    cursor: pointer;
-
-    @media ${device.lg} {
-      display: block;
-    }
   }
 `;
 
 const NavLinks = styled.div`
   display: none;
-  gap: 1.2rem;
   height: 100%;
   font-weight: 600;
 
@@ -178,7 +170,7 @@ const Page = styled.div<PageProps>`
   }`}
 
   a {
-    padding: 0 0.5rem;
+    padding: 0 1.5rem;
     color: ${(p) => p.isActive && "white"};
   }
 `;

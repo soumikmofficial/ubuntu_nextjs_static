@@ -72,9 +72,9 @@ const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   background: white;
-  height: 90vh;
-  position: absolute;
-  top: 10vh;
+  height: 85vh;
+  position: fixed;
+  top: 15vh;
   left: 0;
   width: 100vw;
   z-index: 100;
@@ -100,7 +100,7 @@ const Container = styled(motion.div)`
 
 const MainLinks = styled.section`
   display: flex;
-  gap: 2.5rem;
+  gap: 2.2rem;
   flex-direction: column;
   font-family: var(--font-highlight);
   margin-bottom: 3.5rem;
