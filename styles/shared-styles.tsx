@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { device } from "../utils/breakpoints";
 
-export const OrderBtn = styled.button`
+export const OrderBtn = styled(motion.button)`
   display: none;
   padding: 0.5rem 2rem;
   color: white;

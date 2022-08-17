@@ -7,6 +7,36 @@ import { BsFacebook } from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
 import AboutSection from "../components/aboutHomePage";
 import ContactSectionHomePage from "../components/contactSectionHomePage";
+import { motion } from "framer-motion";
+
+const socialsVariants = {
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+  hidden: {},
+};
+
+const linkVariants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+  },
+};
+
+const buttonVariants = {
+  tapped: {
+    color: "white",
+    background: "gray",
+    scale: 0.9,
+  },
+};
 
 const Home: NextPage = () => {
   return (
@@ -32,31 +62,39 @@ const Home: NextPage = () => {
                 Creating a <span>Kindelicious</span> world by improving what we
                 EAT!🌱
               </p>
-              <Socials>
-                <a
+              <Socials
+                variants={socialsVariants}
+                whileInView="visible"
+                initial="hidden"
+              >
+                <motion.a
+                  variants={linkVariants}
                   href="https://www.instagram.com/ubuntueat/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <AiFillInstagram fontSize={25} className="icons" />
-                </a>
-                <a
+                  <AiFillInstagram fontSize={25} className="icon" />
+                </motion.a>
+                <motion.a
+                  variants={linkVariants}
                   href="https://www.facebook.com/ubuntueat/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <BsFacebook fontSize={22} className="icons" />
-                </a>
+                  <BsFacebook fontSize={22} className="icon" />
+                </motion.a>
                 <GrMail
                   fontSize={24}
-                  className="icons"
+                  className="icon"
                   onClick={() =>
                     window.open("mailto:  ubuntucommunity3@gmail.com")
                   }
                 />
               </Socials>
             </div>
-            <OrderBtn>Order Now</OrderBtn>
+            <OrderBtn variants={buttonVariants} whileTap="tapped">
+              Order Now
+            </OrderBtn>
           </Content>
         </Hero>
       </header>
@@ -191,7 +229,7 @@ const Content = styled.div`
   }
 `;
 
-const Socials = styled.div`
+const Socials = styled(motion.div)`
   display: flex;
   align-items: center;
   gap: 1.2rem;
@@ -205,7 +243,7 @@ const Socials = styled.div`
     transform: rotate(90deg) translateX(-40%);
   }
 
-  .icons {
+  .icon {
     cursor: pointer;
     opacity: 0.9;
     @media ${device.lg} {
@@ -214,7 +252,7 @@ const Socials = styled.div`
   }
 `;
 
-const OrderBtn = styled.button`
+const OrderBtn = styled(motion.button)`
   padding: 0.7rem 2rem;
   color: white;
   background: var(--col-accent);

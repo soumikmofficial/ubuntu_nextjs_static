@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { BsArrowRightCircleFill } from "react-icons/bs";
@@ -29,15 +28,23 @@ const aboutVariants = {
     x: "-100%",
   },
 };
+const imagesComtaomerVariants = {
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+  hidden: {},
+};
 const imageVariants = {
   visible: {
-    x: 0,
+    scale: 1,
     transition: {
       duration: 1,
     },
   },
   hidden: {
-    x: "100%",
+    scale: 0,
   },
 };
 
@@ -95,12 +102,18 @@ const AboutSection = () => {
             </Link>
           </motion.div>
           <ImagesContainer
-            variants={imageVariants}
+            variants={imagesComtaomerVariants}
             whileInView="visible"
             initial="hidden"
           >
             {homeImages.map((img) => (
-              <img src={img.src} alt="" className="image" key={img.id} />
+              <motion.img
+                src={img.src}
+                alt=""
+                className="image"
+                key={img.id}
+                variants={imageVariants}
+              />
             ))}
           </ImagesContainer>
         </Details>

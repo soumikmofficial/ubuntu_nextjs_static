@@ -20,6 +20,14 @@ const variants = {
   hidden: { scale: 0 },
 };
 
+const buttonVariants = {
+  tapped: {
+    color: "white",
+    background: "gray",
+    scale: 0.9,
+  },
+};
+
 interface IProps {
   setIsMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
   isMenuActive: boolean;
@@ -103,7 +111,9 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
           </a>
         </Link>
 
-        <OrderBtn>order now</OrderBtn>
+        <OrderBtn variants={buttonVariants} whileTap="tapped">
+          order now
+        </OrderBtn>
       </div>
     </Container>
   );
