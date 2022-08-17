@@ -128,7 +128,8 @@ const Container = styled.div`
   padding: 3rem 0;
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  min-height: 100vh;
   .main {
     display: flex;
   }
@@ -169,6 +170,7 @@ const Summary = styled(motion.div)`
     p {
       font-family: var(--font-highlight);
       text-transform: capitalize;
+      font-weight: 500;
     }
 
     .icon {
@@ -232,7 +234,7 @@ const Details = styled.div`
 `;
 
 const ImagesContainer = styled(motion.div)`
-    flex: .5;
+  flex: 0.5;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -243,9 +245,11 @@ const ImagesContainer = styled(motion.div)`
   .image {
     width: 100%;
 
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px;
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    border-radius: .5rem;
-    // overflow: hidden;
+    // box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px;
+    // rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+      rgba(0, 0, 0, 0.09) 0px 32px 16px;
   }
 `;

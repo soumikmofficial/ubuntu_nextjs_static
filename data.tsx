@@ -1,10 +1,11 @@
 import { IoLogoWhatsapp } from "react-icons/io";
 import { BsFacebook, BsFillTelephoneOutboundFill } from "react-icons/bs";
 import { ImEarth } from "react-icons/im";
-import { FaSeedling } from "react-icons/fa";
+import { FaFacebook, FaSeedling } from "react-icons/fa";
 import { SiIfood } from "react-icons/si";
 import { GiTwoCoins } from "react-icons/gi";
-import { AiFillInstagram } from "react-icons/ai";
+import { AiFillInstagram, AiTwotoneMail } from "react-icons/ai";
+import { GrMail } from "react-icons/gr";
 
 export const navBtns = [
   { title: "home", id: 1, href: "/" },
@@ -86,14 +87,14 @@ export const socials = [
     id: 2,
   },
   {
-    icon: <BsFacebook className="icon" />,
+    icon: <FaFacebook className="icon" />,
     type: "link",
     title: "facebook",
     href: "https://www.facebook.com/ubuntueat/",
     id: 2,
   },
   {
-    icon: <BsFacebook className="icon" />,
+    icon: <AiTwotoneMail className="icon" />,
     type: "button",
     title: "email",
     id: 3,

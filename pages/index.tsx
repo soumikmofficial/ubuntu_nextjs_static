@@ -2,17 +2,15 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
 import { device } from "../utils/breakpoints";
-import { AiFillInstagram } from "react-icons/ai";
-import { BsFacebook } from "react-icons/bs";
-import { GrMail } from "react-icons/gr";
 import AboutSection from "../components/aboutHomePage";
 import ContactSectionHomePage from "../components/contactSectionHomePage";
 import { motion } from "framer-motion";
+import { socials } from "../data";
 
 const socialsVariants = {
   visible: {
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.5,
     },
   },
   hidden: {},
@@ -67,7 +65,7 @@ const Home: NextPage = () => {
                 whileInView="visible"
                 initial="hidden"
               >
-                <motion.a
+                {/* <motion.a
                   variants={linkVariants}
                   href="https://www.instagram.com/ubuntueat/"
                   target="_blank"
@@ -89,7 +87,23 @@ const Home: NextPage = () => {
                   onClick={() =>
                     window.open("mailto:  ubuntucommunity3@gmail.com")
                   }
-                />
+                /> */}
+                {socials.map((social) =>
+                  social.type === "link" ? (
+                    <motion.a
+                      variants={linkVariants}
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {social.icon}
+                    </motion.a>
+                  ) : (
+                    <motion.div variants={linkVariants}>
+                      {social.icon}
+                    </motion.div>
+                  )
+                )}
               </Socials>
             </div>
             <OrderBtn variants={buttonVariants} whileTap="tapped">
@@ -232,6 +246,7 @@ const Content = styled.div`
 const Socials = styled(motion.div)`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.2rem;
   margin-top: 2rem;
 
@@ -244,10 +259,12 @@ const Socials = styled(motion.div)`
   }
 
   .icon {
+    display: block;
     cursor: pointer;
     opacity: 0.9;
+
     @media ${device.lg} {
-      transform: rotate(-90deg) scale(0.8);
+      transform: rotate(-90deg);
     }
   }
 `;
