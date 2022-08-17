@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -6,10 +7,49 @@ import styled from "styled-components";
 import { homeImages, summaryIcons } from "../data";
 import { device } from "../utils/breakpoints";
 
+const summaryVariants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+  },
+};
+const aboutVariants = {
+  visible: {
+    x: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    x: "-100%",
+  },
+};
+const imageVariants = {
+  visible: {
+    x: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    x: "100%",
+  },
+};
+
 const AboutSection = () => {
   return (
     <Container>
-      <Summary>
+      <Summary
+        className="about"
+        variants={summaryVariants}
+        whileInView="visible"
+        initial="hidden"
+      >
         {summaryIcons.map((icon) => (
           <div className="singleInfo" key={icon.id}>
             {icon.icon}
@@ -20,7 +60,12 @@ const AboutSection = () => {
 
       <div className="main">
         <Details>
-          <div className="about">
+          <motion.div
+            className="about"
+            variants={aboutVariants}
+            whileInView="visible"
+            initial="hidden"
+          >
             <h1 className="header">
               WE SERVE INDIAN, BENGALI, MUGHLAI, CONTINENTAL, ORIENTAL,
               LEBANESE, DESERTS, AND MORE...
@@ -48,8 +93,12 @@ const AboutSection = () => {
                 full menu <BsArrowRightCircleFill />
               </a>
             </Link>
-          </div>
-          <ImagesContainer>
+          </motion.div>
+          <ImagesContainer
+            variants={imageVariants}
+            whileInView="visible"
+            initial="hidden"
+          >
             {homeImages.map((img) => (
               <img src={img.src} alt="" className="image" key={img.id} />
             ))}
@@ -72,7 +121,7 @@ const Container = styled.div`
   }
 `;
 
-const Summary = styled.div`
+const Summary = styled(motion.div)`
   color: var(--col-accent);
   background: var(--col-primary);
   display: grid;
@@ -169,7 +218,7 @@ const Details = styled.div`
   }
 `;
 
-const ImagesContainer = styled.div`
+const ImagesContainer = styled(motion.div)`
     flex: .5;
 
   display: grid;
