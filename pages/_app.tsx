@@ -12,20 +12,24 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [isMenuActive, setIsMenuActive] = useState(false);
   return (
     <AppProvider>
-      <Navbar setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
-
-      <Body>
+      <Body isMenuActive={isMenuActive}>
+        <Navbar setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
         <AnimatePresence>{isMenuActive && <Menu />}</AnimatePresence>
         <Component {...pageProps} />
+        <Footer />
       </Body>
-      <Footer />
     </AppProvider>
   );
 }
 
 export default MyApp;
 
-const Body = styled.main`
+interface IStyledProps {
+  isMenuActive: boolean;
+}
+
+const Body = styled.main<IStyledProps>`
   width: 100vw;
-  height: 100%;
+  height: auto;
+  overflow: ${(props) => (props.isMenuActive ? "hidden" : "none")};
 `;

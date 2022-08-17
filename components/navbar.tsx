@@ -35,8 +35,9 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
 
     window.pageYOffset < lastOffset && setIsVisible(true);
     window.pageYOffset > lastOffset && setIsVisible(false);
-    lastOffset = window.scrollY;
+    lastOffset = window.pageYOffset;
   };
+
   // todo: useEffects
   // ? change navbar color on scroll;
 
@@ -57,6 +58,9 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
     setIsMenuActive((prev) => !prev);
   };
 
+  useEffect(() => {
+    console.log(lastOffset);
+  }, [lastOffset]);
   return (
     <Container isBg={isBg} isVisible={isVisible} isHomePage={isHomePage}>
       {/* inner wrapper */}
@@ -126,6 +130,11 @@ const Container = styled.nav<IStyledContainerProps>`
   transition: all 0.3s ease;
   color: ${(props) =>
     props.isHomePage && !props.isBg ? "var(--col-secondary)" : "white"};
+
+  .icon {
+    color: ${(props) =>
+      props.isHomePage && !props.isBg ? "var(--col-secondary)" : "white"};
+  }
 
   .innerWrapper {
     position: relative;
