@@ -6,7 +6,6 @@ import { useState } from "react";
 import Menu from "../components/menu";
 import styled from "styled-components";
 import { AnimatePresence } from "framer-motion";
-import Home from ".";
 import Footer from "../components/footer";
 
 function MyApp({ Component, pageProps }: AppProps) {

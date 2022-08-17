@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { CgMenuLeft } from "react-icons/cg";
-import { GrClose } from "react-icons/gr";
+import { AiOutlineClose } from "react-icons/ai";
 import { navBtns } from "../data";
 import styled from "styled-components";
 import { device } from "../utils/breakpoints";
@@ -25,11 +25,6 @@ interface IProps {
   isMenuActive: boolean;
 }
 
-interface IStyledContainerProps {
-  isBg: boolean;
-  isVisible: boolean;
-}
-
 const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
   const [isBg, setIsBg] = useState(false);
   let lastOffset = 0;
@@ -51,25 +46,26 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const { currentPage, setCurrentPage } = useAppContext();
+  const { isHomePage } = useAppContext();
+
   // todo: functions
-  const handleClick = (page: string) => {
-    setCurrentPage(page);
-  };
+  // const handleClick = (page: string) => {
+  //   setCurrentPage(page);
+  // };
 
   const handleMenuToggle = () => {
     setIsMenuActive((prev) => !prev);
   };
 
   return (
-    <Container isBg={isBg} isVisible={isVisible}>
+    <Container isBg={isBg} isVisible={isVisible} isHomePage={isHomePage}>
       {/* inner wrapper */}
       <div className="innerWrapper">
         {/* menu icon */}
         <div onClick={handleMenuToggle} className="menu-icon">
           {isMenuActive && (
             <motion.div variants={variants} animate="visible" initial="hidden">
-              <GrClose fontSize={20} className="icon" />
+              <AiOutlineClose fontSize={20} className="icon" id="closeIcon" />
             </motion.div>
           )}
 
@@ -85,8 +81,8 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
           {navBtns.map((btn) => (
             <Page
               key={btn.id}
-              isActive={currentPage === btn.title}
-              onClick={() => handleClick(btn.title)}
+              // isActive={currentPage === btn.title}
+              // onClick={() => handleClick(btn.title)}
             >
               <Link href={`${btn.href}`}>
                 <a> {btn.title}</a>
@@ -111,18 +107,25 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
 
 export default Navbar;
 
+interface IStyledContainerProps {
+  isBg: boolean;
+  isVisible: boolean;
+  isHomePage: boolean;
+}
+
 const Container = styled.nav<IStyledContainerProps>`
   position: fixed;
   width: 100%;
-  background: ${(props) => (props.isBg ? "var(--col-primary)" : "none")};
+  background: ${(props) => (props.isBg ? "var(--col-secondary)" : "none")};
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
   height: 15vh;
   padding: 0 2.5rem;
   font-family: var(--font-sans-2);
   text-transform: capitalize;
   z-index: 1000;
-
   transition: all 0.3s ease;
+  color: ${(props) =>
+    props.isHomePage && !props.isBg ? "var(--col-secondary)" : "white"};
 
   .innerWrapper {
     position: relative;
@@ -145,6 +148,7 @@ const Container = styled.nav<IStyledContainerProps>`
 
   .menu-icon {
     cursor: pointer;
+    color: white;
 
     .icon {
       font-size: 2rem;
@@ -176,7 +180,7 @@ const NavLinks = styled.div`
 `;
 
 interface PageProps {
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 const Page = styled.div<PageProps>`

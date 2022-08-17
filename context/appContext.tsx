@@ -1,30 +1,37 @@
-import React, { useContext, useState } from "react";
+import { useRouter } from "next/router";
+import React, { useContext, useEffect, useState } from "react";
 
 interface IProps {
   children: React.ReactNode;
 }
 
 interface IAppContext {
-  currentPage: string;
+  isHomePage: boolean;
   isMenuActive: boolean;
-  setCurrentPage: React.Dispatch<React.SetStateAction<string>>;
+  setIsHomePage: React.Dispatch<React.SetStateAction<boolean>>;
   setIsMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AppContext = React.createContext<IAppContext>({
-  currentPage: "home",
-  setCurrentPage: () => {},
+  isHomePage: false,
+  setIsHomePage: () => {},
   isMenuActive: false,
   setIsMenuActive: () => {},
 });
 
 export const AppProvider = ({ children }: IProps) => {
-  const [currentPage, setCurrentPage] = useState("home");
+  const { route } = useRouter();
+
+  const [isHomePage, setIsHomePage] = useState(false);
   const [isMenuActive, setIsMenuActive] = useState(false);
+
+  useEffect(() => {
+    route === "/" ? setIsHomePage(true) : setIsHomePage(false);
+  }, [route]);
   const value = {
-    currentPage,
+    isHomePage,
     isMenuActive,
-    setCurrentPage,
+    setIsHomePage,
     setIsMenuActive,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
