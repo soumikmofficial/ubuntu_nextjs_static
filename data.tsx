@@ -1,5 +1,9 @@
 import { IoLogoWhatsapp } from "react-icons/io";
 import { BsFillTelephoneOutboundFill } from "react-icons/bs";
+import { ImEarth } from "react-icons/im";
+import { FaSeedling } from "react-icons/fa";
+import { SiIfood } from "react-icons/si";
+import { GiTwoCoins } from "react-icons/gi";
 
 export const navBtns = [
   { title: "home", id: 1, href: "/" },
@@ -47,5 +51,55 @@ export const contactOutlets = [
     message: "call us on",
     info: "+919999988888",
     id: 2,
+  },
+];
+
+export const summaryIcons = [
+  {
+    icon: <FaSeedling className="icon" />,
+    message: "plant-based only",
+    id: 1,
+  },
+  {
+    icon: <ImEarth className="icon" />,
+    message: "eco-friendly packaging",
+    id: 2,
+  },
+  {
+    icon: <GiTwoCoins className="icon" />,
+    message: "pocket friendly",
+    id: 3,
+  },
+  {
+    icon: <SiIfood className="icon" />,
+    message: "tasty happy meals",
+    id: 4,
+  },
+];
+
+export const homeImages = [
+  {
+    src: "/images/luchi.png",
+    id: 1,
+  },
+  {
+    src: "/images/cake.png",
+    id: 2,
+  },
+  {
+    src: "/images/fry.png",
+    id: 3,
+  },
+  {
+    src: "/images/fry2.png",
+    id: 4,
+  },
+  {
+    src: "/images/pizza.png",
+    id: 5,
+  },
+  {
+    src: "/images/salad.png",
+    id: 6,
   },
 ];

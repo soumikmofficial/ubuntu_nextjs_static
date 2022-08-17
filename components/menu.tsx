@@ -34,7 +34,7 @@ const Menu: React.FC = () => {
     >
       <MainLinks>
         {menuMainLinks.map((link) => (
-          <Link href="">
+          <Link href="" key={link.id}>
             <a>{link.title}</a>
           </Link>
         ))}
@@ -42,7 +42,7 @@ const Menu: React.FC = () => {
       <div className="bottom">
         <SubLinks>
           {menuSubLinks.map((link) => (
-            <Link href="">
+            <Link href="" key={link.id}>
               <a>{link.title}</a>
             </Link>
           ))}

@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
       <div className="other">
         <Links>
           {footerLinks.map((link) => (
-            <Link href={link.href}>
+            <Link href={link.href} key={link.id}>
               <a>{link.title}</a>
             </Link>
           ))}

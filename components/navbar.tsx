@@ -5,8 +5,9 @@ import { navBtns } from "../data";
 import styled from "styled-components";
 import { device } from "../utils/breakpoints";
 import { useAppContext } from "../context/appContext";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { OrderBtn } from "../styles/shared-styles";
+import { useEffect, useState } from "react";
 
 const variants = {
   visible: {
@@ -24,7 +25,32 @@ interface IProps {
   isMenuActive: boolean;
 }
 
+interface IStyledContainerProps {
+  isBg: boolean;
+  isVisible: boolean;
+}
+
 const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
+  const [isBg, setIsBg] = useState(false);
+  let lastOffset = 0;
+  const [isVisible, setIsVisible] = useState(true);
+  const handleScroll = () => {
+    window.pageYOffset < window.innerHeight && setIsBg(false);
+    window.pageYOffset > window.innerHeight && setIsBg(true);
+
+    window.pageYOffset < lastOffset && setIsVisible(true);
+    window.pageYOffset > lastOffset && setIsVisible(false);
+    lastOffset = window.scrollY;
+  };
+  // todo: useEffects
+  // ? change navbar color on scroll;
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const { currentPage, setCurrentPage } = useAppContext();
   // todo: functions
   const handleClick = (page: string) => {
@@ -36,7 +62,7 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
   };
 
   return (
-    <Container>
+    <Container isBg={isBg} isVisible={isVisible}>
       {/* inner wrapper */}
       <div className="innerWrapper">
         {/* menu icon */}
@@ -62,7 +88,7 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
               isActive={currentPage === btn.title}
               onClick={() => handleClick(btn.title)}
             >
-              <Link href={`/${btn.href}`}>
+              <Link href={`${btn.href}`}>
                 <a> {btn.title}</a>
               </Link>
               <div className="pageMarker"></div>
@@ -85,15 +111,18 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
 
 export default Navbar;
 
-const Container = styled.nav`
+const Container = styled.nav<IStyledContainerProps>`
   position: fixed;
   width: 100%;
-  // background: var(--col-primary);
+  background: ${(props) => (props.isBg ? "var(--col-primary)" : "none")};
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
   height: 15vh;
   padding: 0 2.5rem;
   font-family: var(--font-sans-2);
   text-transform: capitalize;
   z-index: 1000;
+
+  transition: all 0.3s ease;
 
   .innerWrapper {
     position: relative;
