@@ -28,10 +28,18 @@ const Footer: React.FC = () => {
           <small className="message">Let's chat</small>
           <small className="email">ubuntucommunity3@gmail.com</small>
           <Socials>
-            <a href="https://www.instagram.com/ubuntueat/" target="_blank">
+            <a
+              href="https://www.instagram.com/ubuntueat/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <AiFillInstagram fontSize={25} className="icons" />
             </a>
-            <a href="https://www.facebook.com/ubuntueat/" target="_blank">
+            <a
+              href="https://www.facebook.com/ubuntueat/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <BsFacebook fontSize={22} className="icons" />
             </a>
             <GrMail

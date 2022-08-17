@@ -33,10 +33,18 @@ const Home: NextPage = () => {
                 EAT!🌱
               </p>
               <Socials>
-                <a href="https://www.instagram.com/ubuntueat/" target="_blank">
+                <a
+                  href="https://www.instagram.com/ubuntueat/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <AiFillInstagram fontSize={25} className="icons" />
                 </a>
-                <a href="https://www.facebook.com/ubuntueat/" target="_blank">
+                <a
+                  href="https://www.facebook.com/ubuntueat/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <BsFacebook fontSize={22} className="icons" />
                 </a>
                 <GrMail
