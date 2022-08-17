@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
           ))}
         </Links>
         <Contact>
-          <small className="message">Let's chat</small>
+          <small className="message"> Let&apos;s chat</small>
           <small className="email">ubuntucommunity3@gmail.com</small>
           <Socials>
             <a
