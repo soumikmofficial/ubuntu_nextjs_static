@@ -8,6 +8,7 @@ import { useAppContext } from "../context/appContext";
 import { motion } from "framer-motion";
 import { OrderBtn } from "../styles/shared-styles";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const variants = {
   visible: {
@@ -35,8 +36,14 @@ interface IProps {
 
 const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
   const [isBg, setIsBg] = useState(false);
-  let lastOffset = 0;
   const [isVisible, setIsVisible] = useState(true);
+  const [currentPage, setCurrentPage] = useState("home");
+  const { isLightBg } = useAppContext();
+  const { route } = useRouter();
+
+  let lastOffset = 0;
+
+  // todo: functions
   const handleScroll = () => {
     window.pageYOffset < window.innerHeight && setIsBg(false);
     window.pageYOffset > window.innerHeight && setIsBg(true);
@@ -46,29 +53,29 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
     lastOffset = window.pageYOffset;
   };
 
-  // todo: useEffects
-  // ? change navbar color on scroll;
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const { isLightBg } = useAppContext();
-
-  // todo: functions
-  // const handleClick = (page: string) => {
-  //   setCurrentPage(page);
-  // };
-
   const handleMenuToggle = () => {
     setIsMenuActive((prev) => !prev);
   };
 
+  const handleClick = (title: string) => {
+    setCurrentPage(title);
+  };
+
+  // todo: useEffects
+
+  //? set currentPage
   useEffect(() => {
-    console.log(lastOffset);
-  }, [lastOffset]);
+    const page = route.split("/")[1];
+
+    page !== "" ? setCurrentPage(page) : setCurrentPage("home");
+  }, [route]);
+
+  // handle scroll
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Container isBg={isBg} isVisible={isVisible} isLightBg={isLightBg}>
       {/* inner wrapper */}
@@ -91,11 +98,7 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
         {/* nav links */}
         <NavLinks>
           {navBtns.map((btn) => (
-            <Page
-              key={btn.id}
-              // isActive={currentPage === btn.title}
-              // onClick={() => handleClick(btn.title)}
-            >
+            <Page key={btn.id} isActive={currentPage === btn.title}>
               <Link href={`${btn.href}`}>
                 <a> {btn.title}</a>
               </Link>

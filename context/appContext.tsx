@@ -19,7 +19,6 @@ export const AppProvider = ({ children }: IProps) => {
   const { route } = useRouter();
 
   const [isLightBg, setIsLightBg] = useState(false);
-  const [isMenuActive, setIsMenuActive] = useState(false);
 
   useEffect(() => {
     route === "/" || "/about" ? setIsLightBg(true) : setIsLightBg(false);

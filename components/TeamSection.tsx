@@ -33,7 +33,7 @@ const TeamSection: React.FC = () => {
         whileInView="visible"
       >
         {team.map((person) => (
-          <SinglePerson>
+          <SinglePerson key={person.id}>
             <motion.img
               src={person.src}
               alt={person.name}
