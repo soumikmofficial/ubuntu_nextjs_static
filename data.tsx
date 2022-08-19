@@ -127,3 +127,38 @@ export const homeImages = [
     id: 6,
   },
 ];
+
+export const team = [
+  {
+    src: "/images/abhinav.png",
+    name: "abinav bajpai",
+    title: "Chief Empowering Officer",
+    about:
+      "Has been an environmentalist since the last eight years and got skills of networking, inspiring in bringing people together. Minimalist by nature and explosive by thought.",
+    id: 1,
+  },
+  {
+    src: "/images/vikash.png",
+    name: "vikash bihani",
+    title: "Chief Evaluation Officer",
+    about:
+      "Has been an environmentalist who comes from a business family background and hence a perfect addition to Ubuntu. Keeps the whole show running at full power.",
+    id: 2,
+  },
+  {
+    src: "/images/shreya.png",
+    name: "shreya saha",
+    title: "Chief Eating Officer",
+    about:
+      "Has been the food innovator and passionate about vaganising every dish in the world. She is a world traveller and wishes to make vegan travel easy for everyone by making plant-based food accessible and affordable..",
+    id: 3,
+  },
+  {
+    src: "/images/richie.png",
+    name: "richie sharma",
+    title: "Chief Eating Officer",
+    about:
+      "Has been an investor and an one man solution for operational needs. A highly resourceful individual and passionate about making world vegan in 10 years. Global ambition for the brands.",
+    id: 4,
+  },
+];

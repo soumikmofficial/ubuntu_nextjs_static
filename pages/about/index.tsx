@@ -1,125 +1,8 @@
-// import type { NextPage } from "next";
-// import styled from "styled-components";
-// import { device } from "../../utils/breakpoints";
-// import ReactPlayer from "react-player";
-
-// const About: NextPage = () => {
-//   return (
-//     <Container>
-//       <Banner>
-//         <h1 className="header">
-//           the <span>ubuntu</span> story
-//         </h1>
-//       </Banner>
-//       <Article>
-//         <img src="/images/team.png" alt="ubuntu team" className="teamImage" />
-//         <p className="ubuntu">
-//           <span className="firstLetter">U</span>buntu which translates to{" "}
-//           <span>“I am because we are”</span> is aiming to create a{" "}
-//           <span>Kindelicious</span> World through their new cloud kitchen and
-//           cafe model which is easy to set up and is affordable to the masses.
-//           Plant based food which is culturally appropriate to India is at the
-//           heart of the model.
-//         </p>
-//         <Video>
-//           <ReactPlayer
-//             url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-//             width="100%"
-//             height="100%"
-//           />
-//         </Video>
-//       </Article>
-//     </Container>
-//   );
-// };
-
-// export default About;
-
-// const Container = styled.div`
-//   .youtube {
-//   }
-// `;
-
-// const Banner = styled.div`
-//   background: var(--col-primary);
-//   text-align: center;
-//   padding: 20vh 0 25vh;
-
-//   .header {
-//     text-transform: capitalize;
-//     font-family: var(--font-banner);
-//     font-size: 2.5rem;
-//     padding: 0 3rem;
-//     font-weight: normal;
-
-//     @media ${device.md} {
-//       font-size: 3rem;
-//     }
-//     span {
-//       color: var(--col-accent);
-//     }
-//   }
-// `;
-
-// const Article = styled.div`
-// transform: translateY(-20vh);
-// background: red;
-
-// .teamImage {
-//     max-width: 40rem;
-//     margin: 0 auto;
-//     display: block;
-//     width: 85%
-// }
-//   .ubuntu {
-//     font-family: var(--font-body);
-//     line-height: 168%;
-//     width: 85%;
-//     margin: 0 auto;
-//     max-width: 40rem;
-//     font-size: 1.2rem;
-//     margin-top: 3rem;
-
-//     .firstLetter {
-//   color: var(--col-accent);
-//   float: left;
-//   font-size: 4.5rem;
-//   line-height: 60px;
-//   padding-top: 4px;
-//   padding-right: .2rem;
-//   padding-left: 3px;
-// }
-
-//     .firstcharacter {
-//   color: #853;
-//   float: left;
-//   font-family: Georgia;
-//   font-size: 75px;
-//   line-height: 60px;
-//   padding-top: 4px;
-//   padding-right: 8px;
-//   padding-left: 3px;
-// }
-
-//   }
-//     span {
-//       font-weight: bold;
-//     }
-//   }
-// `;
-
-// const Video = styled.div`
-//   background: red;
-//   aspect-ratio: 2/1;
-//   width: 50%;
-//   margin: 0 auto;
-// `;
-
 import type { NextPage } from "next";
 import styled from "styled-components";
 import { device } from "../../utils/breakpoints";
-import ReactPlayer from "react-player";
 import { Parallax } from "react-parallax";
+import TeamSection from "../../components/TeamSection";
 
 const About: NextPage = () => {
   return (
@@ -199,6 +82,7 @@ const About: NextPage = () => {
           </p>
         </div>
       </ParallaxSection>
+      <TeamSection />
     </Container>
   );
 };
@@ -331,7 +215,7 @@ const Article2 = styled.article`
 `;
 
 const ParallaxSection = styled(Parallax)`
-  margin: 5rem 0;
+  margin-top: 5rem;
   .innerWrapper {
     background: rgba(78, 43, 31, 0.64);
     display: flex;
@@ -340,7 +224,7 @@ const ParallaxSection = styled(Parallax)`
     padding: 5rem 5%;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
+    min-height: 70vh;
 
     h3 {
       color: var(--col-primary);
@@ -349,7 +233,7 @@ const ParallaxSection = styled(Parallax)`
       font-weight: normal;
       font-size: 2.5rem;
       @media ${device.md} {
-        font-size: 3rem;
+        font-size: 3.5rem;
       }
     }
     p {
@@ -362,7 +246,7 @@ const ParallaxSection = styled(Parallax)`
       max-width: 65rem;
 
       @media ${device.md} {
-        font-size: 2rem;
+        font-size: 2.4rem;
       }
     }
   }
