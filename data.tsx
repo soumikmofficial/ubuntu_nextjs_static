@@ -84,7 +84,7 @@ export const socials = [
     type: "link",
     title: "facebook",
     href: "https://www.facebook.com/ubuntueat/",
-    id: 2,
+    id: 1,
   },
   {
     icon: <FaFacebook className="icon" />,

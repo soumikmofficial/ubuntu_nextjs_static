@@ -6,6 +6,7 @@ import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
 import { device } from "../utils/breakpoints";
+import { useAppContext } from "../context/appContext";
 
 const containerVariants = {
   visible: {
@@ -24,7 +25,14 @@ const containerVariants = {
   },
 };
 
-const Menu: React.FC = () => {
+interface IProps {
+  setIsMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Menu: React.FC<IProps> = ({ setIsMenuActive }) => {
+  const handleNavigation = () => {
+    setIsMenuActive(false);
+  };
   return (
     <Container
       variants={containerVariants}
@@ -34,8 +42,8 @@ const Menu: React.FC = () => {
     >
       <MainLinks>
         {menuMainLinks.map((link) => (
-          <Link href="" key={link.id}>
-            <a>{link.title}</a>
+          <Link href={link.href} key={link.id}>
+            <a onClick={handleNavigation}>{link.title}</a>
           </Link>
         ))}
       </MainLinks>

@@ -65,32 +65,10 @@ const Home: NextPage = () => {
                 whileInView="visible"
                 initial="hidden"
               >
-                {/* <motion.a
-                  variants={linkVariants}
-                  href="https://www.instagram.com/ubuntueat/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <AiFillInstagram fontSize={25} className="icon" />
-                </motion.a>
-                <motion.a
-                  variants={linkVariants}
-                  href="https://www.facebook.com/ubuntueat/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <BsFacebook fontSize={22} className="icon" />
-                </motion.a>
-                <GrMail
-                  fontSize={24}
-                  className="icon"
-                  onClick={() =>
-                    window.open("mailto:  ubuntucommunity3@gmail.com")
-                  }
-                /> */}
                 {socials.map((social) =>
                   social.type === "link" ? (
                     <motion.a
+                      key={social.id}
                       variants={linkVariants}
                       href={social.href}
                       target="_blank"
@@ -99,7 +77,7 @@ const Home: NextPage = () => {
                       {social.icon}
                     </motion.a>
                   ) : (
-                    <motion.div variants={linkVariants}>
+                    <motion.div variants={linkVariants} key={social.id}>
                       {social.icon}
                     </motion.div>
                   )

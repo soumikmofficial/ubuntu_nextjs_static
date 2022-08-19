@@ -14,7 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <AppProvider>
       <Body isMenuActive={isMenuActive}>
         <Navbar setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
-        <AnimatePresence>{isMenuActive && <Menu />}</AnimatePresence>
+        <AnimatePresence>
+          {isMenuActive && <Menu setIsMenuActive={setIsMenuActive} />}
+        </AnimatePresence>
         <Component {...pageProps} />
         <Footer />
       </Body>

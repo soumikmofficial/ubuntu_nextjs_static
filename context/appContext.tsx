@@ -7,16 +7,12 @@ interface IProps {
 
 interface IAppContext {
   isHomePage: boolean;
-  isMenuActive: boolean;
   setIsHomePage: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AppContext = React.createContext<IAppContext>({
   isHomePage: false,
   setIsHomePage: () => {},
-  isMenuActive: false,
-  setIsMenuActive: () => {},
 });
 
 export const AppProvider = ({ children }: IProps) => {
@@ -30,9 +26,7 @@ export const AppProvider = ({ children }: IProps) => {
   }, [route]);
   const value = {
     isHomePage,
-    isMenuActive,
     setIsHomePage,
-    setIsMenuActive,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
