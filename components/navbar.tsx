@@ -55,7 +55,7 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const { isHomePage } = useAppContext();
+  const { isLightBg } = useAppContext();
 
   // todo: functions
   // const handleClick = (page: string) => {
@@ -70,7 +70,7 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
     console.log(lastOffset);
   }, [lastOffset]);
   return (
-    <Container isBg={isBg} isVisible={isVisible} isHomePage={isHomePage}>
+    <Container isBg={isBg} isVisible={isVisible} isLightBg={isLightBg}>
       {/* inner wrapper */}
       <div className="innerWrapper">
         {/* menu icon */}
@@ -124,7 +124,7 @@ export default Navbar;
 interface IStyledContainerProps {
   isBg: boolean;
   isVisible: boolean;
-  isHomePage: boolean;
+  isLightBg: boolean;
 }
 
 const Container = styled.nav<IStyledContainerProps>`
@@ -139,11 +139,11 @@ const Container = styled.nav<IStyledContainerProps>`
   z-index: 1000;
   transition: all 0.3s ease;
   color: ${(props) =>
-    props.isHomePage && !props.isBg ? "var(--col-secondary)" : "white"};
+    props.isLightBg && !props.isBg ? "var(--col-secondary)" : "white"};
 
   .icon {
     color: ${(props) =>
-      props.isHomePage && !props.isBg ? "var(--col-secondary)" : "white"};
+      props.isLightBg && !props.isBg ? "var(--col-secondary)" : "white"};
   }
 
   .innerWrapper {

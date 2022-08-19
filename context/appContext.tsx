@@ -6,27 +6,27 @@ interface IProps {
 }
 
 interface IAppContext {
-  isHomePage: boolean;
-  setIsHomePage: React.Dispatch<React.SetStateAction<boolean>>;
+  isLightBg: boolean;
+  setIsLightBg: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AppContext = React.createContext<IAppContext>({
-  isHomePage: false,
-  setIsHomePage: () => {},
+  isLightBg: false,
+  setIsLightBg: () => {},
 });
 
 export const AppProvider = ({ children }: IProps) => {
   const { route } = useRouter();
 
-  const [isHomePage, setIsHomePage] = useState(false);
+  const [isLightBg, setIsLightBg] = useState(false);
   const [isMenuActive, setIsMenuActive] = useState(false);
 
   useEffect(() => {
-    route === "/" ? setIsHomePage(true) : setIsHomePage(false);
+    route === "/" || "/about" ? setIsLightBg(true) : setIsLightBg(false);
   }, [route]);
   const value = {
-    isHomePage,
-    setIsHomePage,
+    isLightBg,
+    setIsLightBg,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

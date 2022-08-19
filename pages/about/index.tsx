@@ -3,10 +3,20 @@ import styled from "styled-components";
 import { device } from "../../utils/breakpoints";
 import { Parallax } from "react-parallax";
 import TeamSection from "../../components/TeamSection";
+import Head from "next/head";
 
 const About: NextPage = () => {
   return (
     <Container>
+      <Head>
+        <title>About Us</title>
+        <meta name="description" content="about ubuntu and team" />
+        <meta
+          name="keywords"
+          content="vegan, food, kolkata, restaurants, bengali, indian, plant-based, cruelty-free, drink, about, team, tasty, healthy"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Banner>
         <div className="banner-content">
           <h1 className="header">
@@ -50,11 +60,6 @@ const About: NextPage = () => {
         <p>
           Rising pandemics and zoonotic diseases caused by an increase in
           consumption of animal protein.
-        </p>
-        <br />
-        <p>
-          Wasteful and destructive global food system leading to grave food
-          insecurity.
         </p>
         <br />
         <p>
