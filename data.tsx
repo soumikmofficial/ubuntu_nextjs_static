@@ -156,7 +156,7 @@ export const team = [
   {
     src: "/images/richie.png",
     name: "richie sharma",
-    title: "Chief Eating Officer",
+    title: "Chief Envisioning Officer",
     about:
       "Has been an investor and an one man solution for operational needs. A highly resourceful individual and passionate about making world vegan in 10 years. Global ambition for the brands.",
     id: 4,
