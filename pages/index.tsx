@@ -5,16 +5,7 @@ import { device } from "../utils/breakpoints";
 import AboutSection from "../components/aboutHomePage";
 import ContactSectionHomePage from "../components/contactSectionHomePage";
 import { motion } from "framer-motion";
-import { socials } from "../data";
-
-const socialsVariants = {
-  visible: {
-    transition: {
-      staggerChildren: 0.5,
-    },
-  },
-  hidden: {},
-};
+import Socials from "../components/socials";
 
 const linkVariants = {
   visible: {
@@ -64,29 +55,8 @@ const Home: NextPage = () => {
                 Creating a <span>Kindelicious</span> world by improving what we
                 EAT!🌱
               </p>
-              <Socials
-                variants={socialsVariants}
-                whileInView="visible"
-                initial="hidden"
-              >
-                {socials.map((social) =>
-                  social.type === "link" ? (
-                    <motion.a
-                      key={social.id}
-                      variants={linkVariants}
-                      href={social.href}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {social.icon}
-                    </motion.a>
-                  ) : (
-                    <motion.div variants={linkVariants} key={social.id}>
-                      {social.icon}
-                    </motion.div>
-                  )
-                )}
-              </Socials>
+
+              <Socials color="var(--col-secondary)" rotate={true} />
             </div>
             <OrderBtn variants={buttonVariants} whileTap="tapped">
               Order Now
@@ -221,32 +191,6 @@ const Content = styled.div`
 
     span {
       color: #b3594c;
-    }
-  }
-`;
-
-const Socials = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-  margin-top: 2rem;
-
-  color: var(--col-secondary);
-  @media ${device.lg} {
-    position: absolute;
-    left: -40%;
-    top: 50%;
-    transform: rotate(90deg) translateX(-40%);
-  }
-
-  .icon {
-    display: block;
-    cursor: pointer;
-    opacity: 0.9;
-
-    @media ${device.lg} {
-      transform: rotate(-90deg);
     }
   }
 `;

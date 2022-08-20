@@ -1,10 +1,11 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import styled from "styled-components";
 import { homeImages, summaryIcons } from "../data";
 import { device } from "../utils/breakpoints";
+import Slider from "./slider";
 
 const summaryVariants = {
   visible: {
@@ -49,6 +50,14 @@ const imageVariants = {
 };
 
 const AboutSection = () => {
+  const [showSlider, setShowSlider] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(0);
+
+  // todo: functions
+  const openSlider = (index: number) => {
+    setSelectedImage(index);
+    setShowSlider(true);
+  };
   return (
     <Container>
       <Summary
@@ -106,17 +115,27 @@ const AboutSection = () => {
             whileInView="visible"
             initial="hidden"
           >
-            {homeImages.map((img) => (
+            {homeImages.map((img, i) => (
               <motion.img
                 src={img.src}
                 alt=""
                 className="image"
                 key={img.id}
                 variants={imageVariants}
+                onClick={() => openSlider(i)}
               />
             ))}
           </ImagesContainer>
         </Details>
+        <AnimatePresence>
+          {showSlider && (
+            <Slider
+              currentIndex={selectedImage}
+              list={homeImages}
+              onClose={() => setShowSlider(false)}
+            />
+          )}
+        </AnimatePresence>
       </div>
     </Container>
   );
@@ -244,9 +263,7 @@ const ImagesContainer = styled(motion.div)`
   gap: 2rem;
   .image {
     width: 100%;
-
-    // box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px;
-    // rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    cursor: pointer;
     border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
       rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,

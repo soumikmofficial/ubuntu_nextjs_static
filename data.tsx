@@ -104,26 +104,32 @@ export const socials = [
 export const homeImages = [
   {
     src: "/images/luchi.png",
+    name:'food',
     id: 1,
   },
   {
     src: "/images/cake.png",
+    name:'food',
     id: 2,
   },
   {
     src: "/images/fry.png",
+    name:'food',
     id: 3,
   },
   {
     src: "/images/fry2.png",
+    name:'food',
     id: 4,
   },
   {
     src: "/images/pizza.png",
+    name:'food',
     id: 5,
   },
   {
     src: "/images/salad.png",
+    name:'food',
     id: 6,
   },
 ];
