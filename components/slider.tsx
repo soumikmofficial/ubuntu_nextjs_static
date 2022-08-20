@@ -60,7 +60,7 @@ const Slider: React.FC<IProps> = ({ list, currentIndex, onClose }) => {
           effect={"fade"}
         >
           {list.map((img) => (
-            <SwiperSlide className="slide">
+            <SwiperSlide className="slide" key={img.id}>
               <img src={img.src} alt="" className="image" key={img.id} />
               <button onClick={() => onClose()}>close</button>
             </SwiperSlide>
