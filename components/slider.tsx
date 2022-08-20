@@ -83,7 +83,7 @@ const Container = styled(motion.div)`
   justify-content: center;
   align-items: center;
   z-index: 200;
-  background: rgb(0, 0, 0, 0.8);
+  background: rgb(0, 0, 0, 0.95);
 
   .swiperWrapper {
     width: 100%;
@@ -93,6 +93,7 @@ const Container = styled(motion.div)`
 
 const CustomSwiper = styled(Swiper)`
   text-align: center;
+  overflow: auto;
   width: 100%;
   .slide {
     position: relative;
@@ -106,13 +107,17 @@ const CustomSwiper = styled(Swiper)`
     button {
       color: white;
       position: absolute;
-      top: 1%;
-      right: 17%;
+      top: 2%;
+      right: 8%;
       cursor: pointer;
       background: var(--col-highlight);
       padding: 0.3rem 0.6rem;
       border: none;
       border-radius: 10%;
+
+      @media ${device.md} {
+        right: 16%;
+      }
     }
   }
 
@@ -120,9 +125,10 @@ const CustomSwiper = styled(Swiper)`
   .swiper-button-prev {
     color: white;
     display: none;
+    bottom: 0;
 
     @media ${device.md} {
-      display: block;
+      display: flex;
     }
     &::after {
       font-size: 1.3rem;

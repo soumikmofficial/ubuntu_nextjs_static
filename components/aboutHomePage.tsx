@@ -255,13 +255,17 @@ const Details = styled.div`
 const ImagesContainer = styled(motion.div)`
   flex: 0.5;
 
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+
   .image {
+    min-width: 8rem;
+    display: block;
+    margin: 0 auto;
+    max-width: 10rem;
     width: 100%;
     cursor: pointer;
     border-radius: 0.5rem;
