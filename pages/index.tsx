@@ -56,7 +56,7 @@ const Home: NextPage = () => {
                 EAT!🌱
               </p>
 
-              <Socials color="var(--col-secondary)" rotate={true} />
+              <Socials color="var(--col-secondary)" />
             </div>
             <OrderBtn variants={buttonVariants} whileTap="tapped">
               Order Now
