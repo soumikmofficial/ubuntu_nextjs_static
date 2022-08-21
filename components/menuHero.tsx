@@ -7,13 +7,15 @@ const MenuHero: React.FC = () => {
     <Container>
       <img src="images/menuHero.png" alt="foods and greens" />
       <div className="content">
-        <p className="heading">"Vegan Options Are Limited" Is Just A Myth!</p>
+        <p className="heading">
+          &quot;Vegan Options Are Limited" Is Just A Myth!&quot;
+        </p>
         <div className="reviews">
           <div>
             <a
               href="https://www.google.com/search?q=ubuntueat&oq=ubuntueat&aqs=chrome.0.69i59j46i175i199i512j5j5i44l2.5930j0j4&sourceid=chrome&ie=UTF-8#"
               target="_blank"
-              rel="noopener"
+              rel="noreferrer"
             >
               <img src="/images/google-review.png" alt="google review" />
             </a>
@@ -22,7 +24,7 @@ const MenuHero: React.FC = () => {
             <a
               href="https://www.zomato.com/kolkata/ubuntu-eat-new-alipore/order"
               target="_blank"
-              rel="noopener"
+              rel="noreferrer"
             >
               <img src="/images/zomato-review.png" alt="zomato review" />
             </a>
@@ -31,7 +33,7 @@ const MenuHero: React.FC = () => {
         <a
           href="/resources/ubuntu-kolkata-menu.pdf"
           target="_blank"
-          rel="noopener"
+          rel="noreferrer"
           className="menu-btn"
         >
           <MdOutlineMenuBook className="menu-icon" />
