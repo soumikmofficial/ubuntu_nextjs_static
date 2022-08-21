@@ -8,7 +8,7 @@ const MenuHero: React.FC = () => {
       <img src="images/menuHero.png" alt="foods and greens" />
       <div className="content">
         <p className="heading">
-          &quot;Vegan Options Are Limited" Is Just A Myth!&quot;
+          &quot;Vegan Options Are Limited&quot; Is Just A Myth!
         </p>
         <div className="reviews">
           <div>
