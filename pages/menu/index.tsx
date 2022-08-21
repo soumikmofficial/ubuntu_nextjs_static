@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import React, { useState } from "react";
 import styled from "styled-components";
 import Gallery from "../../components/gallery";
+import MenuDetails from "../../components/menuDetails";
 import MenuHero from "../../components/menuHero";
 import Slider from "../../components/slider";
 import { gallery } from "../../data";
@@ -13,6 +14,7 @@ const Menu: NextPage = () => {
   return (
     <Container>
       <MenuHero />
+      <MenuDetails />
       <Gallery
         setShowSlider={setShowSlider}
         setSelectedImage={setSelectedImage}

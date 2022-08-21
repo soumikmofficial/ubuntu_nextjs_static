@@ -156,7 +156,7 @@ export const gallery = [
     id: 4,
   },
   {
-    src: "/images/fry.png",
+    src: "/images/fry2.png",
     name: "food",
     id: 5,
   },
@@ -205,6 +205,16 @@ export const gallery = [
     name: "food",
     id: 14,
   },
+  {
+    src: "/images/food3.png",
+    name: "food",
+    id: 15,
+  },
+  {
+    src: "/images/cake.png",
+    name: "food",
+    id: 16,
+  },
 ];
 
 export const team = [
@@ -239,5 +249,92 @@ export const team = [
     about:
       "Has been an investor and an one man solution for operational needs. A highly resourceful individual and passionate about making world vegan in 10 years. Global ambition for the brands.",
     id: 4,
+  },
+];
+
+export const menuCategories = [
+  {
+    title: "North Indian, Bengali, Mughlai",
+    about:
+      "Our menu includes Kolkata style biryani, kebabs, Indian curries like butter chicken, paneer tikka masala and Bengali dishes like kosha mangsho, chingri malaikari and many more dishes.",
+    id: 1,
+    images: [
+      {
+        src: "/images/biryani.png",
+        name: "food",
+        id: 1,
+      },
+      {
+        src: "/images/kebab.png",
+        name: "food",
+        id: 11,
+      },
+      {
+        src: "/images/luchi.png",
+        name: "food",
+        id: 6,
+      },
+      {
+        src: "/images/fry.png",
+        name: "food",
+        id: 5,
+      },
+    ],
+  },
+  {
+    title: "Oriental, Continental, Lebanese & Salads",
+    about:
+      "We have noodles, Thai prawn curries, pasta, chicken tikka pizza, mutton slaw burger, falafel shawarmas, and many more dishes.",
+    id: 2,
+    images: [
+      {
+        src: "/images/pizza.png",
+        name: "food",
+        id: 4,
+      },
+      {
+        src: "/images/fry2.png",
+        name: "food",
+        id: 5,
+      },
+      {
+        src: "/images/food2.png",
+        name: "food",
+        id: 4,
+      },
+      {
+        src: "/images/food3.png",
+        name: "food",
+        id: 55,
+      },
+    ],
+  },
+  {
+    title: "Smoothie Bowls, Desserts & Beverages",
+    about:
+      "Talking about food, how can we miss dessert​. We have range of cakes, brownies, icecream.",
+    id: 2,
+    images: [
+      {
+        src: "/images/bowl.png",
+        name: "food",
+        id: 9,
+      },
+      {
+        src: "/images/pastry.png",
+        name: "food",
+        id: 10,
+      },
+      {
+        src: "/images/smoothie.png",
+        name: "food",
+        id: 12,
+      },
+      {
+        src: "/images/cake.png",
+        name: "food",
+        id: 16,
+      },
+    ],
   },
 ];

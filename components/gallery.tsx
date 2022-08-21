@@ -61,6 +61,7 @@ const Container = styled.section`
     border-radius: 1rem;
     box-shadow: 0px 4px 15px rgb(0, 0, 0, 0.5);
     cursor: pointer;
+    overflow: hidden;
   }
 
   img {
@@ -68,5 +69,9 @@ const Container = styled.section`
     width: 100%;
     border-radius: 1rem;
     box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+    &:hover {
+      scale: 1.3;
+    }
   }
 `;

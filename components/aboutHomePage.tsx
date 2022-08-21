@@ -20,13 +20,13 @@ const summaryVariants = {
 };
 const aboutVariants = {
   visible: {
-    x: 0,
+    opacity: 1,
     transition: {
       duration: 1,
     },
   },
   hidden: {
-    x: "-100%",
+    opacity: 0,
   },
 };
 const imagesComtaomerVariants = {
@@ -117,14 +117,15 @@ const AboutSection = () => {
             initial="hidden"
           >
             {homeImages.map((img, i) => (
-              <motion.img
-                src={img.src}
-                alt=""
-                className="image"
-                key={img.id}
-                variants={imageVariants}
-                onClick={() => openSlider(i)}
-              />
+              <div key={img.id}>
+                <motion.img
+                  src={img.src}
+                  alt="food"
+                  className="image"
+                  variants={imageVariants}
+                  onClick={() => openSlider(i)}
+                />
+              </div>
             ))}
           </ImagesContainer>
         </Details>
@@ -262,6 +263,10 @@ const ImagesContainer = styled(motion.div)`
   justify-content: center;
   align-items: center;
 
+  div {
+    overflow: hidden;
+  }
+
   .image {
     min-width: 8rem;
     display: block;
@@ -273,5 +278,10 @@ const ImagesContainer = styled(motion.div)`
     box-shadow: rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
       rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
       rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+    transition: all 0.3s ease;
+    &:hover {
+      scale: 1.3;
+    }
   }
 `;
