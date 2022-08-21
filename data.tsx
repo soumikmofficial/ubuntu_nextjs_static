@@ -103,34 +103,107 @@ export const socials = [
 
 export const homeImages = [
   {
-    src: "/images/luchi.png",
-    name:'food',
+    src: "/images/meat.png",
+    name: "food",
     id: 1,
   },
   {
-    src: "/images/cake.png",
-    name:'food',
+    src: "/images/food1.png",
+    name: "food",
     id: 2,
   },
   {
-    src: "/images/fry.png",
-    name:'food',
+    src: "/images/burger.png",
+    name: "food",
     id: 3,
   },
   {
-    src: "/images/fry2.png",
-    name:'food',
+    src: "/images/pizza.png",
+    name: "food",
     id: 4,
   },
   {
-    src: "/images/pizza.png",
-    name:'food',
+    src: "/images/fry.png",
+    name: "food",
     id: 5,
   },
   {
     src: "/images/salad.png",
-    name:'food',
+    name: "food",
     id: 6,
+  },
+];
+
+export const gallery = [
+  {
+    src: "/images/biryani.png",
+    name: "food",
+    id: 1,
+  },
+  {
+    src: "/images/pizza.png",
+    name: "food",
+    id: 2,
+  },
+  {
+    src: "/images/ice-cream.png",
+    name: "food",
+    id: 3,
+  },
+  {
+    src: "/images/food2.png",
+    name: "food",
+    id: 4,
+  },
+  {
+    src: "/images/fry.png",
+    name: "food",
+    id: 5,
+  },
+  {
+    src: "/images/luchi.png",
+    name: "food",
+    id: 6,
+  },
+  {
+    src: "/images/food1.png",
+    name: "food",
+    id: 7,
+  },
+  {
+    src: "/images/fry.png",
+    name: "food",
+    id: 8,
+  },
+  {
+    src: "/images/bowl.png",
+    name: "food",
+    id: 9,
+  },
+  {
+    src: "/images/pastry.png",
+    name: "food",
+    id: 10,
+  },
+  {
+    src: "/images/kebab.png",
+    name: "food",
+    id: 11,
+  },
+  {
+    src: "/images/smoothie.png",
+    name: "food",
+    id: 12,
+  },
+  {
+    src: "/images/momo.png",
+    name: "food",
+    id: 13,
+  },
+  {
+    src: "/images/fry2.png",
+    name: "food",
+    id: 14,
   },
 ];
 

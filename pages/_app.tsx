@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { AppProvider } from "../context/appContext";
 import Navbar from "../components/navbar";
 import { useState } from "react";
-import Menu from "../components/menu";
+import NavMenu from "../components/navMenu";
 import styled from "styled-components";
 import { AnimatePresence } from "framer-motion";
 import Footer from "../components/footer";
@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Body isMenuActive={isMenuActive}>
         <Navbar setIsMenuActive={setIsMenuActive} isMenuActive={isMenuActive} />
         <AnimatePresence>
-          {isMenuActive && <Menu setIsMenuActive={setIsMenuActive} />}
+          {isMenuActive && <NavMenu setIsMenuActive={setIsMenuActive} />}
         </AnimatePresence>
         <Component {...pageProps} />
         <Footer />

@@ -11,15 +11,15 @@ import { device } from "../utils/breakpoints";
 
 const containerVariants = {
   hidden: {
-    scale: 0,
+    opacity: 0,
     transition: {
       duration: 0.2,
     },
   },
   visible: {
-    scale: 1,
+    opacity: 1,
     transition: {
-      duration: 0.2,
+      duration: 0.4,
     },
   },
 };
@@ -48,7 +48,7 @@ const Slider: React.FC<IProps> = ({ list, currentIndex, onClose }) => {
       >
         <CustomSwiper
           spaceBetween={50}
-          slidesPerView={1}
+          slidesPerView={3}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
           navigation
