@@ -259,19 +259,19 @@ const ImagesContainer = styled(motion.div)`
 
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.4rem;
   justify-content: center;
   align-items: center;
 
   div {
     overflow: hidden;
+    width: 40%;
+    max-width: 10rem;
   }
 
   .image {
-    min-width: 8rem;
     display: block;
     margin: 0 auto;
-    max-width: 10rem;
     width: 100%;
     cursor: pointer;
     border-radius: 0.5rem;

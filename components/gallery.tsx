@@ -42,6 +42,7 @@ const Container = styled.section`
     width: 90%;
     max-width: 80rem;
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 
     @media ${device.sm} {
