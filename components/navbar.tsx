@@ -57,10 +57,6 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
     setIsMenuActive((prev) => !prev);
   };
 
-  const handleClick = (title: string) => {
-    setCurrentPage(title);
-  };
-
   // todo: useEffects
 
   //? set currentPage

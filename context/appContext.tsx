@@ -21,7 +21,12 @@ export const AppProvider = ({ children }: IProps) => {
   const [isLightBg, setIsLightBg] = useState(false);
 
   useEffect(() => {
-    route === "/" || "/about" ? setIsLightBg(true) : setIsLightBg(false);
+    if (route === "/" || "/about") {
+      setIsLightBg(true);
+    }
+    if (route === "/menu") {
+      setIsLightBg(false);
+    }
   }, [route]);
   const value = {
     isLightBg,

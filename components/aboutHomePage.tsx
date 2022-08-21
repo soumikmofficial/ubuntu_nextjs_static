@@ -42,7 +42,7 @@ const imageVariants = {
     scale: 1,
     transition: {
       type: "tween",
-      duration: 5,
+      duration: 0.5,
     },
   },
   hidden: {
