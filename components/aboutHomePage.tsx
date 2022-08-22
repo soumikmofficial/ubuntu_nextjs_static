@@ -135,6 +135,8 @@ const AboutSection = () => {
               currentIndex={selectedImage}
               list={homeImages}
               onClose={() => setShowSlider(false)}
+              navigation={true}
+              effect="fade"
             />
           )}
         </AnimatePresence>

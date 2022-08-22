@@ -300,7 +300,7 @@ export const menuCategories = [
       {
         src: "/images/food2.png",
         name: "food",
-        id: 4,
+        id: 44,
       },
       {
         src: "/images/food3.png",
@@ -313,7 +313,7 @@ export const menuCategories = [
     title: "Smoothie Bowls, Desserts & Beverages",
     about:
       "Talking about food, how can we miss dessert​. We have range of cakes, brownies, icecream.",
-    id: 2,
+    id: 3,
     images: [
       {
         src: "/images/bowl.png",

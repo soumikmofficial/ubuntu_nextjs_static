@@ -34,9 +34,12 @@ export default Gallery;
 const Container = styled.section`
   max-width: 85rem;
   margin: 0 auto;
-  width: 100%;
+  width: 95%;
   background: var(--col-highlight);
   padding: 5rem 0;
+  max-width: 85rem;
+
+  border-radius: 0 0 1rem 1rem;
   .innerWrapper {
     margin: 0 auto;
     width: 90%;

@@ -30,6 +30,8 @@ const Menu: NextPage = () => {
       <AnimatePresence>
         {showSlider && (
           <Slider
+            effect="fade"
+            navigation={true}
             currentIndex={selectedImage}
             list={gallery}
             onClose={() => setShowSlider(false)}

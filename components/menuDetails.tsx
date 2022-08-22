@@ -1,6 +1,11 @@
 import styled from "styled-components";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { menuCategories } from "../data";
 import { device } from "../utils/breakpoints";
+import { EffectFade, EffectFlip, Autoplay } from "swiper";
+
+import "swiper/css/effect-fade";
+import "swiper/css/effect-flip";
 
 const MenuDetails: React.FC = () => {
   return (
@@ -9,11 +14,25 @@ const MenuDetails: React.FC = () => {
         <SingleCategory key={category.id}>
           <h3 className="title">{category.title}</h3>
           <p className="about">{category.about}</p>
-          <div className="images">
-            <div className="frame">
-              <img src={category.images[0].src} alt="food" />
-            </div>
-          </div>
+          <Swiper
+            className="swiper"
+            spaceBetween={50}
+            slidesPerView={1}
+            loop
+            modules={[EffectFade, EffectFlip, Autoplay]}
+            initialSlide={1}
+            effect="fade"
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+          >
+            {category.images.map((img) => (
+              <SwiperSlide className="slide" key={img.id}>
+                <img src={img.src} alt="" className="image" key={img.id} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </SingleCategory>
       ))}
     </Container>
@@ -43,7 +62,7 @@ const SingleCategory = styled.div`
   &:nth-of-type(3) {
     background: var(--col-highlight);
 
-    .images .frame {
+    .swiper {
       background: var(--col-dark);
     }
   }
@@ -51,13 +70,13 @@ const SingleCategory = styled.div`
   @media ${device.lg} {
     &:nth-of-type(2) {
       background: var(--col-highlight);
-      .images .frame {
+      .swiper {
         background: var(--col-dark);
       }
     }
     &:nth-of-type(3) {
       background: var(--col-dark);
-      .images .frame {
+      .swiper {
         background: var(--col-highlight);
       }
     }
@@ -74,28 +93,53 @@ const SingleCategory = styled.div`
     line-height: 140%;
     flex-grow: 1;
   }
-  .images {
-    width: 60%;
-    aspect-ratio: 1/1;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  // .images {
+  //   width: 60%;
+  //   aspect-ratio: 1/1;
+  //   margin: 0 auto;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   background: green;
+  //   overflow: hidden;
 
-    .frame {
-      width: 80%;
-      border-radius: 100%;
-      overflow: hidden;
-      padding: 0.8rem;
-      background: var(--col-highlight);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  //   }
+
+  .swiper {
+    width: 50%;
+    max-width: 16rem;
+    aspect-ratio: 1/1;
+    background: var(--col-highlight);
+    padding: .6rem;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
       box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.25);
-      img {
-        border-radius: 100%;
-        width: 100%;
-      }
+
+    img {
+      width: 100%;
+      border-radius: 100%;
+      height: 100%;
+      object-fit: cover;
+
     }
+  }
+
+    // .frame {
+    //   width: 80%;
+    //   border-radius: 100%;
+    //   overflow: hidden;
+    //   padding: 0.8rem;
+    //   background: var(--col-highlight);
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    //   box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.25);
+    //   img {
+    //     border-radius: 100%;
+    //     width: 100%;
+    //   }
+    // }
   }
 `;

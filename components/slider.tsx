@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, EffectFade } from "swiper";
+import { Navigation, Pagination, EffectFade, EffectFlip } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import "swiper/css/effect-flip";
 import { motion } from "framer-motion";
 import { device } from "../utils/breakpoints";
 
@@ -34,9 +35,25 @@ interface IProps {
   list: IImage[];
   currentIndex: number;
   onClose: () => void;
+  navigation: boolean;
+  effect:
+    | "slide"
+    | "fade"
+    | "cube"
+    | "coverflow"
+    | "flip"
+    | "creative"
+    | "cards"
+    | undefined;
 }
 
-const Slider: React.FC<IProps> = ({ list, currentIndex, onClose }) => {
+const Slider: React.FC<IProps> = ({
+  list,
+  currentIndex,
+  onClose,
+  navigation,
+  effect,
+}) => {
   return (
     <Container>
       <motion.div
@@ -48,16 +65,14 @@ const Slider: React.FC<IProps> = ({ list, currentIndex, onClose }) => {
       >
         <CustomSwiper
           spaceBetween={50}
-          slidesPerView={3}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-          navigation
+          slidesPerView={1}
+          navigation={navigation}
           pagination={{ clickable: true }}
           loop
-          modules={[Navigation, Pagination, EffectFade]}
+          modules={[Navigation, Pagination, EffectFade, EffectFlip]}
           initialSlide={currentIndex}
           className="slider"
-          effect={"fade"}
+          effect={effect}
         >
           {list.map((img) => (
             <SwiperSlide className="slide" key={img.id}>
@@ -82,8 +97,8 @@ const Container = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 200;
   background: rgb(0, 0, 0, 0.95);
+  z-index: 1000;
 
   .swiperWrapper {
     width: 100%;
