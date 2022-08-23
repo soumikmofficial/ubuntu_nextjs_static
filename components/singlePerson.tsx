@@ -79,10 +79,10 @@ const Container = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
-  max-width: 13rem;
+  max-width: 16rem;
   width: 100%;
   img {
-    width: 100%;
+    width: 80%;
     max-width: 23rem;
     border-radius: 50%;
   }
