@@ -4,6 +4,7 @@ import { device } from "../../utils/breakpoints";
 import { Parallax } from "react-parallax";
 import TeamSection from "../../components/TeamSection";
 import Head from "next/head";
+import { motion } from "framer-motion";
 
 const About: NextPage = () => {
   return (
@@ -20,7 +21,17 @@ const About: NextPage = () => {
       <Banner>
         <div className="banner-content">
           <h1 className="header">
-            the <span>ubuntu</span> story
+            the{" "}
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: { duration: 0.5, delay: 0.5 },
+              }}
+            >
+              ubuntu
+            </motion.span>{" "}
+            story
           </h1>
           <img src="/images/team.png" alt="" className="teamImage" />
         </div>

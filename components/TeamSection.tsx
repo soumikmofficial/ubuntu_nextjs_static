@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { team } from "../data";
+import SinglePerson from "./singlePerson";
 
 const personVariants = {
   visible: {
@@ -33,16 +34,7 @@ const TeamSection: React.FC = () => {
         whileInView="visible"
       >
         {team.map((person) => (
-          <SinglePerson key={person.id}>
-            <motion.img
-              src={person.src}
-              alt={person.name}
-              variants={imgVariants}
-            />
-            <h4 className="name">{person.name}</h4>
-            <p className="title">{person.title}</p>
-            <button>more...</button>
-          </SinglePerson>
+          <SinglePerson person={person} key={person.id} />
         ))}
       </motion.div>
     </Container>
@@ -73,35 +65,5 @@ const Container = styled.div`
     gap: 4rem;
     flex-wrap: wrap;
     justify-content: space-around;
-  }
-`;
-
-const SinglePerson = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
-  max-width: 13rem;
-  width: 100%;
-  img {
-    width: 100%;
-    max-width: 23rem;
-    border-radius: 50%;
-  }
-  .name {
-    margin-top: 1rem;
-    font-family: var(--font-sans-3);
-    font-size: 1.2rem;
-    text-transform: capitalize;
-  }
-  .title {
-    font-family: var(--font-sans-1);
-    font-size: 1.1rem;
-  }
-
-  button {
-    background: none;
-    border: none;
-    text-decoration: underline;
   }
 `;
