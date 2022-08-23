@@ -36,8 +36,11 @@ const Container = styled.section`
   margin: 0 auto;
   width: 95%;
   background: var(--col-highlight);
-  padding: 5rem 0;
+  padding: 2rem 0;
   max-width: 85rem;
+  @media ${device.md} {
+   width: 86%;%;
+  }
 
   border-radius: 0 0 1rem 1rem;
   .innerWrapper {
@@ -52,10 +55,11 @@ const Container = styled.section`
       grid-template-columns: repeat(3, 1fr);
     }
     @media ${device.md} {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
     @media ${device.lg} {
       gap: 5rem;
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 

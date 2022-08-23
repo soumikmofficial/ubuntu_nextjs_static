@@ -46,6 +46,7 @@ export default Menu;
 
 const Container = styled.div`
   background: var(--col-dark);
+  padding-bottom: 2rem;
 `;
 
 const Filler = styled.div`
@@ -59,7 +60,7 @@ const Filler = styled.div`
     border-radius: 1rem 1rem 0 0;
     display: none;
 
-    @media ${device.md} {
+    @media ${device.lg} {
       display: block;
     }
   }

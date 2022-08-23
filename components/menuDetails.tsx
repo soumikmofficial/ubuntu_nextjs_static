@@ -33,6 +33,7 @@ const MenuDetails: React.FC = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+          {/* <hr /> */}
         </SingleCategory>
       ))}
     </Container>
@@ -42,9 +43,12 @@ const MenuDetails: React.FC = () => {
 export default MenuDetails;
 
 const Container = styled.section`
-  width: 100%;
+  margin: 0 auto;
+  padding: 0 2%;
   display: grid;
-  flex-direction: column;
+  @media ${device.md} {
+    padding: 0 7%;
+  }
   @media ${device.lg} {
     grid-template-columns: repeat(3, 1fr);
     padding: 0 5%;
@@ -52,9 +56,16 @@ const Container = styled.section`
 `;
 
 const SingleCategory = styled.div`
+position: relative;
   color: var(--col-primary);
   display: flex;
   flex-direction: column;
+  max-width: 85rem;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+
+
 
   text-align: center;
   padding: 3rem 1rem;
@@ -93,17 +104,7 @@ const SingleCategory = styled.div`
     line-height: 140%;
     flex-grow: 1;
   }
-  // .images {
-  //   width: 60%;
-  //   aspect-ratio: 1/1;
-  //   margin: 0 auto;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   background: green;
-  //   overflow: hidden;
 
-  //   }
 
   .swiper {
     width: 50%;
@@ -126,20 +127,6 @@ const SingleCategory = styled.div`
     }
   }
 
-    // .frame {
-    //   width: 80%;
-    //   border-radius: 100%;
-    //   overflow: hidden;
-    //   padding: 0.8rem;
-    //   background: var(--col-highlight);
-    //   display: flex;
-    //   justify-content: center;
-    //   align-items: center;
-    //   box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.25);
-    //   img {
-    //     border-radius: 100%;
-    //     width: 100%;
-    //   }
-    // }
+    
   }
 `;
