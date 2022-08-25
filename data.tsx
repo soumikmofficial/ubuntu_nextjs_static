@@ -27,31 +27,31 @@ export const footerLinks = [
 ];
 
 export const menuSubLinks = [
-  { title: "the story", id: 1 },
-  { title: "the team", id: 2 },
-  { title: "north indian", id: 3 },
-  { title: "bengali", id: 4 },
-  { title: "mughlai", id: 5 },
-  { title: "oriental", id: 6 },
-  { title: "continental", id: 7 },
-  { title: "salads", id: 8 },
-  { title: "smoothies", id: 9 },
-  { title: "bowls", id: 10 },
-  { title: "deserts", id: 11 },
-  { title: "beverages", id: 12 },
+  { title: "the story", href: "/about", id: 1 },
+  { title: "the team", href: "/about", id: 2 },
+  { title: "north indian", href: "/menu", id: 3 },
+  { title: "bengali", href: "/menu", id: 4 },
+  { title: "mughlai", href: "/menu", id: 5 },
+  { title: "oriental", href: "/menu", id: 6 },
+  { title: "continental", href: "/menu", id: 7 },
+  { title: "salads", href: "/menu", id: 8 },
+  { title: "smoothies", href: "/menu", id: 9 },
+  { title: "bowls", href: "/menu", id: 10 },
+  { title: "deserts", href: "/menu", id: 11 },
+  { title: "beverages", href: "/menu", id: 12 },
 ];
 
 export const contactOutlets = [
   {
     icon: <IoLogoWhatsapp className="icon" />,
     message: "message us at",
-    info: "+919999988888",
+    info: "++919330823020",
     id: 1,
   },
   {
     icon: <BsFillTelephoneOutboundFill className="icon" />,
     message: "call us on",
-    info: "+919999988888",
+    info: "++919330823020",
     id: 2,
   },
 ];

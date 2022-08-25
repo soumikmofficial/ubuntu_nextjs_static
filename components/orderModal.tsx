@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import Link from "next/link";
 import React from "react";
 import { AiFillCloseCircle, AiFillInstagram } from "react-icons/ai";
 import { BsFillTelephoneOutboundFill } from "react-icons/bs";
@@ -16,11 +18,32 @@ const OrderModal: React.FC<IProps> = ({ setIsOrderModalActive }) => {
     setIsOrderModalActive(false);
   };
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText("+919330823020");
+  };
+
+  const contentVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+    },
+  };
+
   // todo: return
   return (
     <Container>
-      <div className="contentWrapper">
-        <AiFillCloseCircle className="close-btn" onClick={handleClose} />
+      <motion.div
+        className="contentWrapper"
+        variants={contentVariants}
+        animate="visible"
+        initial="hidden"
+        exit="hidden"
+      >
+        <div className="close-btn" onClick={handleClose}>
+          <AiFillCloseCircle className="icon" />
+        </div>
         <div className="title">
           <p>order directly from us and get attractive discounts!</p>
           <small>
@@ -31,19 +54,29 @@ const OrderModal: React.FC<IProps> = ({ setIsOrderModalActive }) => {
         <div className="order">
           <div className="direct">
             <div className="top">
+              <Link href="https://api.whatsapp.com/send/?phone=%2B919330823020&text&app_absent=0">
+                <a className="iconWrapper">
+                  <IoLogoWhatsapp className="icon" />
+                </a>
+              </Link>
+
               <div className="iconWrapper">
-                <IoLogoWhatsapp className="icon" />
-              </div>
-              <div className="iconWrapper">
-                <AiFillInstagram className="icon" />
+                <Link href="https://www.instagram.com/ubuntueat/">
+                  <a>
+                    <AiFillInstagram className="icon" />
+                  </a>
+                </Link>
               </div>
             </div>
 
             <div className="phone">
               <div className="iconWrapper">
-                <BsFillTelephoneOutboundFill className="icon" />
+                <BsFillTelephoneOutboundFill
+                  className="icon"
+                  onClick={handleCopy}
+                />
               </div>
-              <p>+919999988888</p>
+              <p>+919330823020</p>
             </div>
           </div>
           <div className="divider-mobile">
@@ -55,11 +88,19 @@ const OrderModal: React.FC<IProps> = ({ setIsOrderModalActive }) => {
           </div>
 
           <div className="indirect">
-            <SiZomato className="icon" />
-            <SiSwiggy className="icon" />
+            <Link href="https://www.zomato.com/kolkata/ubuntu-eat-new-alipore/order">
+              <a>
+                <SiZomato className="icon" />
+              </a>
+            </Link>
+            <Link href="https://www.swiggy.com/restaurants/ubuntu-eat-new-alipore-kolkata-241028">
+              <a>
+                <SiSwiggy className="icon swiggy" />
+              </a>
+            </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Container>
   );
 };
@@ -69,7 +110,7 @@ export default OrderModal;
 const Container = styled.div`
   height: 100vh;
   width: 100vw;
-  background: rgb(0, 0, 0, 0.8);
+  background: rgb(0, 0, 0, 0.9);
   position: fixed;
   top: 0;
   left: 0;
@@ -95,10 +136,11 @@ const Container = styled.div`
 
     .close-btn {
       color: white;
-      display: block;
-      font-size: 1.5rem;
       margin-left: auto;
       cursor: pointer;
+      .icon {
+        font-size: 1.5rem;
+      }
     }
 
     .title {
@@ -133,6 +175,7 @@ const Container = styled.div`
         margin-top: 1rem;
       }
       .iconWrapper {
+        display: block;
         padding: 0.8rem;
         border-radius: 100%;
         box-shadow: 1px 3px 3px #000000;
@@ -140,6 +183,7 @@ const Container = styled.div`
         .icon {
           color: white;
           font-size: 2.2rem;
+          cursor: pointer;
         }
       }
 
@@ -231,10 +275,10 @@ const Container = styled.div`
         }
         .icon {
           font-size: 4rem;
-
-          &:nth-of-type(2) {
-            font-size: 2.2rem;
-          }
+          cursor: pointer;
+        }
+        & .swiggy {
+          font-size: 2.2rem;
         }
       }
     }

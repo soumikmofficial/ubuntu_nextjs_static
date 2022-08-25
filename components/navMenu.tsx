@@ -61,13 +61,13 @@ const NavMenu: React.FC<IProps> = ({
       <div className="bottom">
         <SubLinks>
           {menuSubLinks.map((link) => (
-            <Link href="" key={link.id}>
-              <a>{link.title}</a>
+            <Link href={link.href} key={link.id}>
+              <a onClick={handleNavigation}>{link.title}</a>
             </Link>
           ))}
         </SubLinks>
 
-        <Socials>
+        <Socials onClick={handleNavigation}>
           <a
             href="https://www.instagram.com/ubuntueat/"
             target="_blank"
@@ -149,6 +149,7 @@ const MainLinks = styled.section`
     margin: 0 auto;
     @media ${device.lg} {
       font-size: 2.2rem;
+      margin: 0;
     }
     @media ${device.xl} {
       font-size: 2.5rem;
