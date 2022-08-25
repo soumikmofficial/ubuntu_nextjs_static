@@ -88,6 +88,7 @@ const OrderModal: React.FC<IProps> = ({ setIsOrderModalActive }) => {
 
             <div className="phone">
               <motion.a
+                href="tel:9330823020"
                 className="iconWrapper"
                 whileTap={{ scale: 0.8, opacity: 0.3 }}
               >
@@ -206,8 +207,18 @@ const Container = styled.div`
         padding: 0.8rem;
         border-radius: 100%;
         box-shadow: 1px 3px 3px #000000;
+        opacity: 0.9;
+        transition: all 0.5s ease;
+        &:hover {
+          box-shadow: 2px 5px 5px #000000;
+          opacity: 1;
+          .icon {
+            color: var(--col-primary);
+          }
+        }
 
         .icon {
+          transition: all 0.5s ease;
           color: white;
           font-size: 2.2rem;
           cursor: pointer;
@@ -309,6 +320,11 @@ const Container = styled.div`
         .icon {
           font-size: 4rem;
           cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            color: var(--col-primary);
+          }
         }
         & .swiggy {
           font-size: 2.2rem;
