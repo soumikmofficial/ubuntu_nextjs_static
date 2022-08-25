@@ -27,7 +27,20 @@ const buttonVariants = {
   },
 };
 
-const Home: NextPage = () => {
+interface IProps {
+  setIsMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsOrderModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Home: NextPage<IProps> = ({ setIsMenuActive, setIsOrderModalActive }) => {
+  // todo: functions
+
+  const handleOrder = () => {
+    setIsOrderModalActive(true);
+    setIsMenuActive(false);
+  };
+
+  // todo: return
   return (
     <Container>
       <Head>
@@ -58,7 +71,11 @@ const Home: NextPage = () => {
 
               <Socials color="var(--col-secondary)" />
             </div>
-            <OrderBtn variants={buttonVariants} whileTap="tapped">
+            <OrderBtn
+              variants={buttonVariants}
+              whileTap="tapped"
+              onClick={handleOrder}
+            >
               Order Now
             </OrderBtn>
           </Content>

@@ -26,12 +26,23 @@ const containerVariants = {
 
 interface IProps {
   setIsMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsOrderModalActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NavMenu: React.FC<IProps> = ({ setIsMenuActive }) => {
+const NavMenu: React.FC<IProps> = ({
+  setIsMenuActive,
+  setIsOrderModalActive,
+}) => {
   const handleNavigation = () => {
     setIsMenuActive(false);
   };
+
+  const handleOrder = () => {
+    setIsOrderModalActive(true);
+    setIsMenuActive(false);
+  };
+
+  // todo: return
   return (
     <Container
       variants={containerVariants}
@@ -45,6 +56,7 @@ const NavMenu: React.FC<IProps> = ({ setIsMenuActive }) => {
             <a onClick={handleNavigation}>{link.title}</a>
           </Link>
         ))}
+        <button onClick={handleOrder}>order</button>
       </MainLinks>
       <div className="bottom">
         <SubLinks>
@@ -124,10 +136,17 @@ const MainLinks = styled.section`
     margin-top: 3.5rem;
   }
 
-  a {
+  a,
+  button {
     text-transform: uppercase;
     font-size: 1.6rem;
     letter-spacing: 0.8rem;
+    border: none;
+    color: var(--col-secondary);
+    width: fit-content;
+    background: none;
+    cursor: pointer;
+    margin: 0 auto;
     @media ${device.lg} {
       font-size: 2.2rem;
     }

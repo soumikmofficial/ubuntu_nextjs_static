@@ -20,7 +20,7 @@ const Menu: NextPage = () => {
         <div className="decor"></div>
         <div className="message">
           <p className="header">!!! warning !!!</p>
-          <p className="body">The Images below can be highly addictive</p>
+          <p className="body">images below may cause serious craving</p>
         </div>
       </Filler>
       <Gallery

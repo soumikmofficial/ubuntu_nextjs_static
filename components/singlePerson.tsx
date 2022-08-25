@@ -47,6 +47,7 @@ const SinglePerson: React.FC<IProps> = ({ person }) => {
   const handleClick = () => {
     setIsAbout((prev) => !prev);
   };
+
   return (
     <Container>
       <motion.img src={person.src} alt={person.name} variants={imgVariants} />

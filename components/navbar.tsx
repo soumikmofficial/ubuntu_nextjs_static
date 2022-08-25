@@ -32,9 +32,14 @@ const buttonVariants = {
 interface IProps {
   setIsMenuActive: React.Dispatch<React.SetStateAction<boolean>>;
   isMenuActive: boolean;
+  setIsOrderModalActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
+const Navbar: React.FC<IProps> = ({
+  setIsMenuActive,
+  isMenuActive,
+  setIsOrderModalActive,
+}) => {
   const [isBg, setIsBg] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [currentPage, setCurrentPage] = useState("home");
@@ -55,6 +60,11 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
 
   const handleMenuToggle = () => {
     setIsMenuActive((prev) => !prev);
+  };
+
+  const handleOrder = () => {
+    setIsOrderModalActive(true);
+    setIsMenuActive(false);
   };
 
   // todo: useEffects
@@ -110,7 +120,11 @@ const Navbar: React.FC<IProps> = ({ setIsMenuActive, isMenuActive }) => {
           </a>
         </Link>
 
-        <OrderBtn variants={buttonVariants} whileTap="tapped">
+        <OrderBtn
+          variants={buttonVariants}
+          whileTap="tapped"
+          onClick={handleOrder}
+        >
           order now
         </OrderBtn>
       </div>
