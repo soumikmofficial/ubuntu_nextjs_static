@@ -59,7 +59,7 @@ const Container = styled.div`
   }
 
   .person {
-    width: 80%;
+    width: 90%;
     max-width: 1280px;
     display: flex;
     gap: 4rem;

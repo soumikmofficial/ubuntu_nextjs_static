@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillCloseCircle, AiFillInstagram } from "react-icons/ai";
 import { BsFillTelephoneOutboundFill } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io";
@@ -8,28 +8,39 @@ import { SiSwiggy, SiZomato } from "react-icons/si";
 import styled from "styled-components";
 import { device } from "../utils/breakpoints";
 
+const contentVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+};
+
 interface IProps {
   setIsOrderModalActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const OrderModal: React.FC<IProps> = ({ setIsOrderModalActive }) => {
+  const [isCopied, setIsCopied] = useState(false);
   // todo: functions
   const handleClose = () => {
     setIsOrderModalActive(false);
   };
 
   const handleCopy = () => {
+    if (isCopied) return;
     navigator.clipboard.writeText("+919330823020");
+    setIsCopied(true);
   };
 
-  const contentVariants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-    },
-  };
+  // todo: useEffects
+  useEffect(() => {
+    isCopied &&
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 3000);
+  }, [isCopied]);
 
   // todo: return
   return (
@@ -54,29 +65,42 @@ const OrderModal: React.FC<IProps> = ({ setIsOrderModalActive }) => {
         <div className="order">
           <div className="direct">
             <div className="top">
-              <Link href="https://api.whatsapp.com/send/?phone=%2B919330823020&text&app_absent=0">
-                <a className="iconWrapper">
-                  <IoLogoWhatsapp className="icon" />
-                </a>
-              </Link>
+              <motion.a
+                href="https://api.whatsapp.com/send/?phone=%2B919330823020&text&app_absent=0"
+                className="iconWrapper"
+                target="_blank"
+                rel="noreferrer"
+                whileTap={{ scale: 0.9, opacity: 0.3 }}
+              >
+                <IoLogoWhatsapp className="icon" />
+              </motion.a>
 
-              <div className="iconWrapper">
-                <Link href="https://www.instagram.com/ubuntueat/">
-                  <a>
-                    <AiFillInstagram className="icon" />
-                  </a>
-                </Link>
-              </div>
+              <motion.a
+                href="https://www.instagram.com/ubuntueat/"
+                className="iconWrapper"
+                target="_blank"
+                rel="noreferrer"
+                whileTap={{ scale: 0.9, opacity: 0.3 }}
+              >
+                <AiFillInstagram className="icon" />
+              </motion.a>
             </div>
 
             <div className="phone">
-              <div className="iconWrapper">
+              <motion.a
+                className="iconWrapper"
+                whileTap={{ scale: 0.8, opacity: 0.3 }}
+              >
                 <BsFillTelephoneOutboundFill
                   className="icon"
                   onClick={handleCopy}
                 />
-              </div>
-              <p>+919330823020</p>
+              </motion.a>
+              {isCopied ? (
+                <p className="copied">number copied to clipboard</p>
+              ) : (
+                <p className="number">+919330823020</p>
+              )}
             </div>
           </div>
           <div className="divider-mobile">
@@ -120,6 +144,7 @@ const Container = styled.div`
   justify-content: center;
 
   .contentWrapper {
+    border-radius: 1rem;
     height: 100%;
     width: 100%;
     overflow-y: scroll;
@@ -128,7 +153,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    max-width: 50rem;
+    max-width: 45rem;
+    box-shadow: 2px 4px 10px #000000;
 
     @media ${device.md} {
       height: auto;
@@ -214,6 +240,12 @@ const Container = styled.div`
 
           p {
             color: var(--col-highlight);
+            font-family: var(--font-sans-1);
+            text-transform: capitalize;
+          }
+
+          .copied {
+            font-weight: bold;
           }
         }
       }

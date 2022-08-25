@@ -52,10 +52,10 @@ const Container = styled.div`
 const Filler = styled.div`
   padding: 0 2%;
   .decor {
-    width: 100%;
+    width: 90%;
     max-width: 85rem;
     margin: 0 auto;
-    height: 3rem;
+    height: 4rem;
     background: var(--col-highlight);
     border-radius: 1rem 1rem 0 0;
     display: none;

@@ -1,6 +1,28 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { gallery } from "../data";
 import { device } from "../utils/breakpoints";
+
+const parentVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 
 interface IProps {
   setSelectedImage: React.Dispatch<React.SetStateAction<number>>;
@@ -14,17 +36,23 @@ const Gallery: React.FC<IProps> = ({ setSelectedImage, setShowSlider }) => {
   };
   return (
     <Container>
-      <div className="innerWrapper">
+      <motion.div
+        variants={parentVariants}
+        className="innerWrapper"
+        initial="hidden"
+        whileInView="visible"
+      >
         {gallery.map((img, index) => (
-          <div
+          <motion.div
+            variants={imageVariants}
             className="imageWrapper"
             onClick={() => handleClick(index)}
             key={img.id}
           >
             <img src={img.src} alt="" />
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </Container>
   );
 };
@@ -36,7 +64,7 @@ const Container = styled.section`
   margin: 0 auto;
   width: 95%;
   background: var(--col-highlight);
-  padding: 2rem 0;
+  padding: 3.5rem 0;
   max-width: 85rem;
   @media ${device.md} {
    width: 86%;%;

@@ -1,6 +1,19 @@
 import styled from "styled-components";
 import { MdOutlineMenuBook } from "react-icons/md";
 import { device } from "../utils/breakpoints";
+import { motion } from "framer-motion";
+
+const reviewVariants = {
+  hidden: {
+    scale: 0,
+  },
+  visible: {
+    scale: 1,
+    transition: {
+      delay: 1,
+    },
+  },
+};
 
 const MenuHero: React.FC = () => {
   return (
@@ -10,8 +23,12 @@ const MenuHero: React.FC = () => {
         <p className="heading">
           &quot;Vegan Options Are Limited&quot; Is Just A Myth!
         </p>
-        <div className="reviews">
-          <div>
+        <motion.div className="reviews">
+          <motion.div
+            variants={reviewVariants}
+            initial="hidden"
+            animate="visible"
+          >
             <a
               href="https://www.google.com/search?q=ubuntueat&oq=ubuntueat&aqs=chrome.0.69i59j46i175i199i512j5j5i44l2.5930j0j4&sourceid=chrome&ie=UTF-8#"
               target="_blank"
@@ -19,8 +36,12 @@ const MenuHero: React.FC = () => {
             >
               <img src="/images/google-review.png" alt="google review" />
             </a>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div
+            variants={reviewVariants}
+            initial="hidden"
+            animate="visible"
+          >
             <a
               href="https://www.zomato.com/kolkata/ubuntu-eat-new-alipore/order"
               target="_blank"
@@ -28,8 +49,8 @@ const MenuHero: React.FC = () => {
             >
               <img src="/images/zomato-review.png" alt="zomato review" />
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         <a
           href="/resources/ubuntu-kolkata-menu.pdf"
           target="_blank"

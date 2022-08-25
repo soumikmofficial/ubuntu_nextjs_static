@@ -22,7 +22,7 @@
   --padding-x-lg: 0 10rem;
   --padding-x-xl: 0 13rem;
 }
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 1px;
 }
 

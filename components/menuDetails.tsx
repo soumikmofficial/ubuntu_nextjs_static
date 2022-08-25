@@ -6,12 +6,39 @@ import { EffectFade, EffectFlip, Autoplay } from "swiper";
 
 import "swiper/css/effect-fade";
 import "swiper/css/effect-flip";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const categoryVariants = {
+  hidden: {
+    x: "-100vw",
+  },
+  visible: {
+    x: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 
 const MenuDetails: React.FC = () => {
   return (
-    <Container>
+    <Container
+      initial="hidden"
+      whileInView="visible"
+      variants={containerVariants}
+    >
       {menuCategories.map((category) => (
-        <SingleCategory key={category.id}>
+        <SingleCategory key={category.id} variants={categoryVariants}>
           <h3 className="title">{category.title}</h3>
           <p className="about">{category.about}</p>
           <Swiper
@@ -42,8 +69,9 @@ const MenuDetails: React.FC = () => {
 
 export default MenuDetails;
 
-const Container = styled.section`
+const Container = styled(motion.section)`
   margin: 0 auto;
+  margin-top: 2rem;
   padding: 0 2%;
   display: grid;
   @media ${device.md} {
@@ -55,7 +83,7 @@ const Container = styled.section`
   }
 `;
 
-const SingleCategory = styled.div`
+const SingleCategory = styled(motion.div)`
 position: relative;
   color: var(--col-primary);
   display: flex;
@@ -64,6 +92,7 @@ position: relative;
   align-items: center;
   margin: 0 auto;
   width: 100%;
+  border-radius: .8rem .8rem 0 0;
 
 
 
