@@ -122,6 +122,7 @@ const Container = styled.div`
   .contentWrapper {
     height: 100%;
     width: 100%;
+    overflow-y: scroll;
     background: var(--col-dark);
     padding: 3rem 2rem;
     display: flex;

@@ -82,6 +82,7 @@ const Container = styled(motion.div)<IContainerProps>`
     display: block;
     cursor: pointer;
     opacity: 0.9;
+    font-size: 1.3rem;
 
     @media ${device.lg} {
       transform: rotate(-90deg);
