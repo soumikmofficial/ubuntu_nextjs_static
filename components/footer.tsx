@@ -17,7 +17,7 @@ const Footer: React.FC<IProps> = ({ setIsOrderModalActive }) => {
   };
 
   return (
-    <Container>
+    <Container id="footer">
       <Branding>
         <img src="/images/ubuntu-logo.png" alt="" />
         <p>
@@ -185,6 +185,7 @@ const Links = styled.div`
   @media ${device.lg} {
     flex-direction: column;
     gap: 1.3rem;
+    justify-content: start;
   }
 `;
 

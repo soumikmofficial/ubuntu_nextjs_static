@@ -16,13 +16,13 @@ export const navBtns = [
 export const menuMainLinks = [
   { title: "menu", id: 1, href: "/menu" },
   { title: "about us", id: 2, href: "/about" },
-  { title: "contact", id: 3, href: "/" },
+  { title: "contact", id: 3, href: "#footer" },
   // { title: "order", id: 4, href: "/menu" },
 ];
 export const footerLinks = [
   { title: "menu", id: 1, href: "/menu" },
   { title: "about", id: 2, href: "/about" },
-  { title: "contact", id: 3, href: "/" },
+  // { title: "contact", id: 3, href: "/" },
   { title: "order", id: 4, href: "/menu" },
 ];
 
