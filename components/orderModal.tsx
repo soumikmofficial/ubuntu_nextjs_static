@@ -210,6 +210,7 @@ const Container = styled.div`
         opacity: 0.9;
         transition: all 0.5s ease;
         &:hover {
+          background: var(--col-dark);
           box-shadow: 2px 5px 5px #000000;
           opacity: 1;
           .icon {
