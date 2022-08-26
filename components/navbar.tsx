@@ -204,7 +204,7 @@ const NavLinks = styled.div`
   a {
     transition: all 0.2s ease;
     &:hover {
-      color: gray;
+      color: var(--col-highlight);
     }
   }
 

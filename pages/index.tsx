@@ -51,7 +51,7 @@ const Home: NextPage<IProps> = ({ setIsMenuActive, setIsOrderModalActive }) => {
           name="keywords"
           content="vegan, food, kolkata, restaurants, bengali, indian, plant-based, cruelty-free, drink, about, team, tasty, healthy"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/ubuntu-logo.png" />
       </Head>
       <header>
         <Hero>

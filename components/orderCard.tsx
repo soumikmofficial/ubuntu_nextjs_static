@@ -280,7 +280,7 @@ const Container = styled(motion.div)<IContainerProps>`
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: var(--col-dark);
+        background: ${(props) => props.bgColor};
         color: white;
         padding: 0 2rem;
       }
@@ -301,7 +301,8 @@ const Container = styled(motion.div)<IContainerProps>`
         left: 50%;
         transform: translate(-50%, -50%);
         padding: 1rem 0;
-        background: var(--col-dark);
+        background: ${(props) => props.bgColor};
+
         color: white;
       }
     }

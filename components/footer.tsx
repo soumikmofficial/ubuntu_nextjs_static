@@ -33,7 +33,9 @@ const Footer: React.FC<IProps> = ({ setIsOrderModalActive }) => {
                 <a>{link.title}</a>
               </Link>
             ) : (
-              <button onClick={handleOrder}>{link.title}</button>
+              <button onClick={handleOrder} key={link.id}>
+                {link.title}
+              </button>
             )
           )}
         </Links>

@@ -1,5 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import { NextPage } from "next";
+import Head from "next/head";
+// import { Head } from "next/head";
 import React, { useState } from "react";
 import styled from "styled-components";
 import Gallery from "../../components/gallery";
@@ -14,6 +16,15 @@ const Menu: NextPage = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   return (
     <Container>
+      <Head>
+        <title>Ubuntu: Menu</title>
+        <meta name="description" content="about ubuntu and team" />
+        <meta
+          name="keywords"
+          content="vegan, food, kolkata, restaurants, bengali, indian, plant-based, cruelty-free, drink, about, team, tasty, healthy"
+        />
+        <link rel="icon" href="/images/ubuntu-logo.png" />
+      </Head>
       <MenuHero />
       <MenuDetails />
       <Filler>

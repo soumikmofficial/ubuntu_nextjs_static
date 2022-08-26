@@ -10,13 +10,13 @@ const About: NextPage = () => {
   return (
     <Container>
       <Head>
-        <title>About Us</title>
+        <title>Ubuntu: About Us</title>
         <meta name="description" content="about ubuntu and team" />
         <meta
           name="keywords"
           content="vegan, food, kolkata, restaurants, bengali, indian, plant-based, cruelty-free, drink, about, team, tasty, healthy"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/ubuntu-logo.png" />
       </Head>
       <Banner>
         <div className="banner-content">
