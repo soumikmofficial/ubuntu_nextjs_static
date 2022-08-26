@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           setIsMenuActive={setIsMenuActive}
           setIsOrderModalActive={setIsOrderModalActive}
         />
-        <Footer />
+        <Footer setIsOrderModalActive={setIsOrderModalActive} />
       </Body>
     </AppProvider>
   );

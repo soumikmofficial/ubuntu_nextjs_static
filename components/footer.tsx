@@ -1,12 +1,21 @@
 import Link from "next/link";
-import styled from "styled-components";
-import { footerLinks } from "../data";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
+import styled from "styled-components";
+import { footerLinks } from "../data";
 import { device } from "../utils/breakpoints";
 
-const Footer: React.FC = () => {
+interface IProps {
+  setIsOrderModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Footer: React.FC<IProps> = ({ setIsOrderModalActive }) => {
+  // todo: functions
+  const handleOrder = () => {
+    setIsOrderModalActive(true);
+  };
+
   return (
     <Container>
       <Branding>
@@ -18,11 +27,15 @@ const Footer: React.FC = () => {
 
       <div className="other">
         <Links>
-          {footerLinks.map((link) => (
-            <Link href={link.href} key={link.id}>
-              <a>{link.title}</a>
-            </Link>
-          ))}
+          {footerLinks.map((link) =>
+            link.title !== "order" ? (
+              <Link href={link.href} key={link.id}>
+                <a>{link.title}</a>
+              </Link>
+            ) : (
+              <button onClick={handleOrder}>{link.title}</button>
+            )
+          )}
         </Links>
         <Contact>
           <small className="message"> Let&apos;s chat</small>
@@ -132,8 +145,18 @@ const Links = styled.div`
   gap: 1rem;
   justify-content: center;
 
-  a {
+  a,
+  button {
     text-transform: capitalize;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: white;
+    text-align: left;
+    transition: all 0.2s ease;
+    &:hover {
+      color: var(--col-primary);
+    }
   }
 
   @media ${device.lg} {
@@ -162,5 +185,9 @@ const Socials = styled.div`
   .icons {
     cursor: pointer;
     scale: 0.8;
+    transition: all 0.2s ease;
+    &:hover {
+      color: var(--col-primary);
+    }
   }
 `;

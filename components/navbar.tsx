@@ -1,14 +1,14 @@
-import Link from "next/link";
-import { CgMenuLeft } from "react-icons/cg";
-import { AiOutlineClose } from "react-icons/ai";
-import { navBtns } from "../data";
-import styled from "styled-components";
-import { device } from "../utils/breakpoints";
-import { useAppContext } from "../context/appContext";
 import { motion } from "framer-motion";
-import { OrderBtn } from "../styles/shared-styles";
-import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import { CgMenuLeft } from "react-icons/cg";
+import styled from "styled-components";
+import { useAppContext } from "../context/appContext";
+import { navBtns } from "../data";
+import { OrderBtn } from "../styles/shared-styles";
+import { device } from "../utils/breakpoints";
 
 const variants = {
   visible: {
@@ -200,6 +200,13 @@ const NavLinks = styled.div`
   display: none;
   height: 100%;
   font-weight: 600;
+
+  a {
+    transition: all 0.2s ease;
+    &:hover {
+      color: gray;
+    }
+  }
 
   @media ${device.lg} {
     display: flex;

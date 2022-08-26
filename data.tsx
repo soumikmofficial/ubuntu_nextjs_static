@@ -94,7 +94,12 @@ export const socials = [
     id: 2,
   },
   {
-    icon: <AiTwotoneMail className="icon" />,
+    icon: (
+      <AiTwotoneMail
+        className="icon"
+        onClick={() => window.open("mailto:  ubuntucommunity3@gmail.com")}
+      />
+    ),
     type: "button",
     title: "email",
     id: 3,

@@ -1,12 +1,11 @@
 import styled from "styled-components";
+import { Autoplay, EffectFade, EffectFlip } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { menuCategories } from "../data";
 import { device } from "../utils/breakpoints";
-import { EffectFade, EffectFlip, Autoplay } from "swiper";
-
+import { motion } from "framer-motion";
 import "swiper/css/effect-fade";
 import "swiper/css/effect-flip";
-import { motion } from "framer-motion";
 
 const containerVariants = {
   hidden: {},

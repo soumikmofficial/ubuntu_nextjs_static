@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiFillCloseCircle, AiFillInstagram } from "react-icons/ai";
 import { BsFillTelephoneOutboundFill } from "react-icons/bs";
@@ -20,7 +19,7 @@ const contentVariants = {
 interface IProps {
   bgColor: string;
   isCloseBtn: boolean;
-  setIsOrderModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsOrderModalActive?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const OrderCard: React.FC<IProps> = ({
@@ -31,7 +30,7 @@ const OrderCard: React.FC<IProps> = ({
   const [isCopied, setIsCopied] = useState(false);
   // todo: functions
   const handleClose = () => {
-    setIsOrderModalActive(false);
+    setIsOrderModalActive && setIsOrderModalActive(false);
   };
 
   const handleCopy = () => {
@@ -119,16 +118,20 @@ const OrderCard: React.FC<IProps> = ({
         </div>
 
         <div className="indirect">
-          <Link href="https://www.zomato.com/kolkata/ubuntu-eat-new-alipore/order">
-            <a>
-              <SiZomato className="icon" />
-            </a>
-          </Link>
-          <Link href="https://www.swiggy.com/restaurants/ubuntu-eat-new-alipore-kolkata-241028">
-            <a>
-              <SiSwiggy className="icon swiggy" />
-            </a>
-          </Link>
+          <a
+            href="https://www.zomato.com/kolkata/ubuntu-eat-new-alipore/order"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <SiZomato className="icon" />
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.swiggy.com/restaurants/ubuntu-eat-new-alipore-kolkata-241028"
+          >
+            <SiSwiggy className="icon swiggy" />
+          </a>
         </div>
       </div>
     </Container>

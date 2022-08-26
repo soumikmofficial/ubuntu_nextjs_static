@@ -3,8 +3,8 @@ import Head from "next/head";
 import styled from "styled-components";
 import { device } from "../utils/breakpoints";
 import AboutSection from "../components/aboutHomePage";
-import ContactSectionHomePage from "../components/abcde";
-// import ContactSectionHomePage from "../components/contactSectionHomePage";
+// import ContactSectionHomePage from "../components/abcde";
+import ContactSectionHomePage from "../components/contactSectionHomePage";
 import { motion } from "framer-motion";
 import Socials from "../components/socials";
 

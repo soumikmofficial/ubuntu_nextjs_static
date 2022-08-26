@@ -1,13 +1,12 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, EffectFade, EffectFlip } from "swiper";
-// Import Swiper styles
+import { EffectFade, EffectFlip, Navigation, Pagination } from "swiper";
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "swiper/css/effect-flip";
-import { motion } from "framer-motion";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { device } from "../utils/breakpoints";
 
 const containerVariants = {

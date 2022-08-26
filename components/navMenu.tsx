@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import styled from "styled-components";
-import { menuMainLinks, menuSubLinks } from "../data";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
+import styled from "styled-components";
+import { menuMainLinks, menuSubLinks } from "../data";
 import { device } from "../utils/breakpoints";
 
 const containerVariants = {
