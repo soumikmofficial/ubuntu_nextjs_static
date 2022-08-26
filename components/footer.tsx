@@ -65,7 +65,20 @@ const Footer: React.FC<IProps> = ({ setIsOrderModalActive }) => {
           </Socials>
         </Contact>
 
-        <small className="copyright">Ⓒ 2022 Ubuntu. All rights reserved</small>
+        <div className="privacy-copyright">
+          <small>
+            <a
+              href="https://www.privacypolicygenerator.info/live.php?token=ihEciBlcQfDQDuefdRS1snFotTfb7PDd"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Privacy Policy
+            </a>
+          </small>
+          <small className="copyright">
+            Ⓒ 2022 UbuntuEat. All rights reserved
+          </small>
+        </div>
       </div>
     </Container>
   );
@@ -103,13 +116,21 @@ const Container = styled.footer`
       justify-content: space-around;
     }
   }
-
-  .copyright {
-    margin: 0 auto;
-    color: gray;
-    margin-top: 1rem;
-    @media ${device.lg} {
-      margin: 0;
+  .privacy-copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    small {
+      margin: 0 auto;
+      color: gray;
+      margin-top: 1rem;
+      transition: all 0.2s esae;
+      &:hover {
+        color: white;
+      }
+      @media ${device.lg} {
+        margin: 0;
+      }
     }
   }
 `;
