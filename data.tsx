@@ -9,8 +9,8 @@ import { GrMail } from "react-icons/gr";
 
 export const navBtns = [
   { title: "home", id: 1, href: "/" },
-  { title: "about", id: 2, href: "/about" },
-  { title: "menu", id: 3, href: "/menu" },
+  { title: "menu", id: 2, href: "/menu" },
+  { title: "about", id: 3, href: "/about" },
 ];
 
 export const menuMainLinks = [
