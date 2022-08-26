@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { EffectFade, EffectFlip, Navigation, Pagination } from "swiper";
+import {
+  EffectFade,
+  EffectFlip,
+  Navigation,
+  Pagination,
+  Keyboard,
+} from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/effect-flip";
@@ -68,10 +74,11 @@ const Slider: React.FC<IProps> = ({
           navigation={navigation}
           pagination={{ clickable: true }}
           loop
-          modules={[Navigation, Pagination, EffectFade, EffectFlip]}
+          modules={[Navigation, Pagination, EffectFade, EffectFlip, Keyboard]}
           initialSlide={currentIndex}
           className="slider"
           effect={effect}
+          keyboard
         >
           {list.map((img) => (
             <SwiperSlide className="slide" key={img.id}>

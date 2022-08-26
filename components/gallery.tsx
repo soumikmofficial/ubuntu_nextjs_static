@@ -3,15 +3,6 @@ import styled from "styled-components";
 import { gallery } from "../data";
 import { device } from "../utils/breakpoints";
 
-const parentVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0,
-    },
-  },
-};
-
 const imageVariants = {
   hidden: {
     opacity: 0,
@@ -36,15 +27,12 @@ const Gallery: React.FC<IProps> = ({ setSelectedImage, setShowSlider }) => {
   };
   return (
     <Container>
-      <motion.div
-        variants={parentVariants}
-        className="innerWrapper"
-        initial="hidden"
-        whileInView="visible"
-      >
+      <div className="innerWrapper">
         {gallery.map((img, index) => (
           <motion.div
             variants={imageVariants}
+            initial="hidden"
+            whileInView="visible"
             className="imageWrapper"
             onClick={() => handleClick(index)}
             key={img.id}
@@ -52,7 +40,7 @@ const Gallery: React.FC<IProps> = ({ setSelectedImage, setShowSlider }) => {
             <img src={img.src} alt="" />
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </Container>
   );
 };
