@@ -143,6 +143,8 @@ interface IStyledContainerProps {
 const Container = styled.nav<IStyledContainerProps>`
   position: fixed;
   width: 100%;
+  top: 0;
+  left: 0;
   background: ${(props) => (props.isBg ? "var(--col-secondary)" : "none")};
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
   height: 15vh;

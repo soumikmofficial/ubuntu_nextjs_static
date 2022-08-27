@@ -49,7 +49,8 @@ interface IStyledProps {
 }
 
 const Body = styled.main<IStyledProps>`
-  width: 100vw;
+  position: relative;
+  width: 100%;
   height: auto;
   overflow: ${(props) => (props.isMenuActive ? "hidden" : "none")};
 `;
